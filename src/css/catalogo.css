@@ -1,0 +1,101 @@
+/* ==========================================
+   ESTILOS EXCLUSIVOS PARA CATALOGO.HTML
+   ========================================== */
+
+/* Cabecera del Catálogo Extenso */
+.catalogo-header-extenso {
+    padding: 10rem 2rem 4rem 2rem; 
+    text-align: center;
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.catalogo-header-extenso h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a1d20;
+    margin-bottom: 1rem;
+}
+
+.catalogo-header-extenso p {
+    font-size: 1.15rem;
+    color: #555555;
+    margin-bottom: 2.5rem;
+}
+
+/* Barra de Búsqueda */
+.busqueda-container {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.busqueda-container input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.busqueda-container input:focus {
+    border-color: #5d5fef;
+}
+
+/* Ajuste del fondo para esta vista */
+.catalogo-pagina {
+    background-color: transparent;
+    padding-top: 0;
+}
+
+/* Paginación */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 4rem;
+}
+
+.btn-page {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-page:hover:not(.disabled):not(.active) {
+    background-color: #f0f0ff;
+    color: #5d5fef;
+    border-color: #5d5fef;
+}
+
+.btn-page.active {
+    background-color: #5d5fef;
+    color: #ffffff;
+    border-color: #5d5fef;
+}
+
+.btn-page.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Adaptación móvil */
+@media (max-width: 600px) {
+    .busqueda-container {
+        flex-direction: column;
+    }
+    .busqueda-container input, 
+    .busqueda-container button {
+        width: 100%;
+    }
+}
+
