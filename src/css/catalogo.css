@@ -1,8 +1,3 @@
-/* ==========================================
-   ESTILOS EXCLUSIVOS PARA CATALOGO.HTML
-   ========================================== */
-
-/* Cabecera del Catálogo Extenso */
 .catalogo-header-extenso {
     padding: 10rem 2rem 4rem 2rem; 
     text-align: center;
@@ -24,7 +19,7 @@
     margin-bottom: 2.5rem;
 }
 
-/* Barra de Búsqueda */
+
 .busqueda-container {
     display: flex;
     gap: 0.5rem;
@@ -46,13 +41,13 @@
     border-color: #5d5fef;
 }
 
-/* Ajuste del fondo para esta vista */
+
 .catalogo-pagina {
     background-color: transparent;
     padding-top: 0;
 }
 
-/* Paginación */
+
 .paginacion {
     display: flex;
     justify-content: center;
@@ -88,7 +83,7 @@
     cursor: not-allowed;
 }
 
-/* Adaptación móvil */
+
 @media (max-width: 600px) {
     .busqueda-container {
         flex-direction: column;

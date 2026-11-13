@@ -1,18 +1,18 @@
 /*
 @ Autor: Jhon Esteban Garcia Florez
 @ fecha: 06/09/2026
-@ descripcion: validaciones para el formulario de registro y envío de datos al backend mediante fetch.
+@ descripcion: validaciones para el formulario de registro y envío de datos
 */
 
 async function validacionCampos(event) {
-    event.preventDefault(); // Evitamos que el formulario recargue la página de forma tradicional
+    event.preventDefault();
 
     // Captura de valores limpios de espacios en blanco
     const nombre = document.getElementById("nombre").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const confirmacion = document.getElementById("confirm-password").value;
-    const terminos = document.getElementById("terms").checked; // Usamos .checked para checkboxes
+    const terminos = document.getElementById("terms").checked;
 
     if (nombre === "" || email === "" || password === "" || confirmacion === "") {
         alert("Por favor, completa todos los campos obligatorios.");
@@ -49,7 +49,7 @@ async function validacionCampos(event) {
 
         if (respuesta.ok) {
             alert("Registro exitoso");
-            window.location.href = '/login'; // Redirige al login tras registrarse con éxito
+            window.location.href = '/login';
         } else {
             alert(data.detail || 'Ocurrió un error al registrar el usuario.');
         }

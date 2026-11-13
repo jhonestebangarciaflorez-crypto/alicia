@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
     <div class="brand-header">
         <div class="brand-logo-box">
             <i data-lucide="sparkles"></i>
@@ -18,9 +17,8 @@
         <span class="brand-title">ALICIA</span>
     </div>
 
-    <!-- Tarjeta Principal de Recuperación -->
+
     <div class="login-container">
-        <!-- Candado centrado -->
         <div class="lock-icon-container">
             <div class="lock-box">
                 <i data-lucide="lock"></i>
@@ -42,45 +40,9 @@
         <div id="mensaje-respuesta" style="margin-top: 15px;"></div>
         
         <div class="back-link-container">
-            <a href="/auth/login">← Volver al Inicio de Sesión</a>
+            <a href="#">← Volver al Inicio de Sesión</a>
         </div>
     </div>
-    <script>
-        lucide.createIcons();
-
-        document.getElementById('form-recuperar').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const correo = document.getElementById('correo').value;
-            const mensajeDiv = document.getElementById('mensaje-respuesta');
-
-            try {
-                const response = await fetch('/auth/solicitar-recuperacion', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ correo })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    mensajeDiv.style.color = 'green';
-                    mensajeDiv.innerHTML = `${data.mensaje}<br><small>(Código de prueba: <b>${data.codigo_verificacion_mock}</b>)</small><br><small>Redirigiendo...</small>`;
-                    
-                    // 🚀 ESTO ES LO QUE HACE EL SALTO AUTOMÁTICO
-                    setTimeout(() => {
-                        window.location.href = '/restablecer';
-                    }, 10000); // Espera 3 segundos para que puedas leer el código y luego salta solo
-
-                } else {
-                    mensajeDiv.style.color = 'red';
-                    mensajeDiv.textContent = data.detail || 'Ocurrió un error.';
-                }
-            } catch (error) {
-                mensajeDiv.style.color = 'red';
-                mensajeDiv.textContent = 'Error de conexión con el servidor.';
-            }
-        });
-    </script>
 </body>
 </html>
 

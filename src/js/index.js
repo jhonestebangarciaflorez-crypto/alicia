@@ -36,14 +36,14 @@ faqQuestions.forEach(question => {
     question.addEventListener('click', () => {
         const item = question.parentElement;
         
-        // Esta línea cierra las demás preguntas si abres una nueva (opcional, pero se ve mejor)
+
         document.querySelectorAll('.faq-item').forEach(otherItem => {
             if (otherItem !== item) {
                 otherItem.classList.remove('active');
             }
         });
 
-        // Alterna el estado abierto/cerrado de la pregunta seleccionada
+
         item.classList.toggle('active');
     });
 });

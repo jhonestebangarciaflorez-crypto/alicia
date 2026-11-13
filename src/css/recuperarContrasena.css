@@ -1,4 +1,3 @@
-/* Estilos generales */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -51,7 +50,7 @@ body {
     color: #6b7280;
 }
 
-/* Tarjeta Principal */
+
 .login-container {
     background: #ffffff;
     padding: 40px;
@@ -61,7 +60,7 @@ body {
     max-width: 460px;
 }
 
-/* Contenedor del Candado (Centrado) */
+
 .lock-icon-container {
     display: flex;
     justify-content: center;
@@ -84,7 +83,6 @@ body {
     height: 24px;
 }
 
-/* Títulos y textos */
 .login-container h2 {
     font-size: 24px;
     font-weight: 700;
@@ -99,7 +97,7 @@ body {
     line-height: 1.5;
 }
 
-/* Etiquetas e Inputs */
+
 .input-label {
     display: block;
     font-size: 11px;
@@ -147,7 +145,7 @@ body {
     color: #9ca3af;
 }
 
-/* Botón de envío */
+
 .btn-submit {
     width: 100%;
     padding: 12px;
@@ -171,7 +169,7 @@ body {
     transform: translateY(0);
 }
 
-/* Enlace de retorno */
+
 .back-link-container {
     text-align: center;
     margin-top: 24px;

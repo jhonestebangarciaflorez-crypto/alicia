@@ -16,10 +16,9 @@
         </div>
         <nav class="nav-menu">
             <ul>
-                <!-- La clase active ahora está en Catálogo -->
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="catalogo.html" class="active">Catálogo Técnico</a></li>
-                <li><a href="#footer">Nosotros</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
             </ul>
         </nav>
         <div class="buttons-action">
@@ -29,19 +28,17 @@
     </header>
 
     <main>
-        <!-- Encabezado exclusivo del Catálogo Extenso -->
         <section class="catalogo-header-extenso">
             <h1>Catálogo de Aprendizaje</h1>
             <p>Explora toda nuestra documentación técnica. Aprende a tu propio ritmo con la guía de ALICIA.</p>
             
             <div class="busqueda-container">
                 <input type="text" id="buscador-catalogo" placeholder="Buscar temas, funciones o lenguajes...">
-                <button class="btn-primario">Buscar</button>
+                <button class="btn-primario" id="btn-buscar">Buscar</button>
             </div>
         </section>
 
         <section id="catalogo" class="catalogo catalogo-pagina">
-            <!-- Filtros (Iguales al index, listos para tu JS) -->
             <div class="catalog-filters">
                 <button class="filter-btn active" data-filter="todos">Todos</button>
                 <button class="filter-btn" data-filter="java">Java</button>
@@ -49,10 +46,9 @@
                 <button class="filter-btn" data-filter="sql">SQL</button>
             </div>
 
-            <!-- Grilla de Tarjetas (Reutiliza tu clase .cards-red y .card) -->
+
             <div class="cards-red">
                 
-                <!-- Tarjeta Java -->
                 <article class="card" data-category="java">
                     <div class="card-header">
                         <span class="card-icon">&lt;/&gt;</span>
@@ -64,7 +60,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta Java 2 -->
+
+
                 <article class="card" data-category="java">
                     <div class="card-header">
                         <span class="card-icon">&lt;/&gt;</span>
@@ -76,7 +73,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta Java 3 -->
+
+
                 <article class="card" data-category="java">
                     <div class="card-header">
                         <span class="card-icon">&lt;/&gt;</span>
@@ -88,7 +86,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta Java 4 (Nueva) -->
+
+
                 <article class="card" data-category="java">
                     <div class="card-header">
                         <span class="card-icon">&lt;/&gt;</span>
@@ -100,7 +99,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta HTML/CSS -->
+
+
                 <article class="card" data-category="html">
                     <div class="card-header">
                         <span class="card-icon">
@@ -118,7 +118,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta HTML/CSS 2 -->
+
+
                 <article class="card" data-category="html">
                     <div class="card-header">
                         <span class="card-icon">
@@ -136,7 +137,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta HTML/CSS 3 (Nueva) -->
+
+
                 <article class="card" data-category="html">
                     <div class="card-header">
                         <span class="card-icon">
@@ -154,7 +156,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta SQL -->
+
+
                 <article class="card" data-category="sql">
                     <div class="card-header">
                         <span class="card-icon">
@@ -172,7 +175,8 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
-                <!-- Tarjeta SQL 2 -->
+
+
                 <article class="card" data-category="sql">
                     <div class="card-header">
                         <span class="card-icon">
@@ -190,7 +194,9 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
                 
-                <!-- Tarjeta SQL 3 -->
+
+                
+
                 <article class="card" data-category="sql">
                     <div class="card-header">
                         <span class="card-icon">
@@ -208,10 +214,116 @@
                     <a href="#" class="card-link">Ver documentación &gt;</a>
                 </article>
 
+
+
+                <article class="card" data-category="sql">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                            </svg>
+                        </span>
+                        <span class="etiqueta-nivel principiante">Principiante</span>
+                    </div>
+                    <h3>Consultas Básicas SQL</h3>
+                    <span class="tech-tag">SQL</span>
+                    <p>Introducción a SELECT, WHERE, INSERT y operaciones fundamentales en bases de datos relacionales.</p>
+                    <a href="#" class="card-link">Ver documentación &gt;</a>
+                </article>
+
+
+                
+
+                <article class="card" data-category="html">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </span>
+                        <span class="etiqueta-nivel intermedio">Intermedio</span>
+                    </div>
+                    <h3>Animaciones y Transiciones CSS</h3>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <p>Creación de efectos visuales fluidos, transformaciones 2D/3D y animaciones con keyframes.</p>
+                    <a href="#" class="card-link">Ver documentación &gt;</a>
+                </article>
+
+
+                
+
+                <article class="card" data-category="java">
+                    <div class="card-header">
+                        <span class="card-icon">&lt;/&gt;</span>
+                        <span class="etiqueta-nivel avanzado">Avanzado</span>
+                    </div>
+                    <h3>Concurrencia y Multihilos</h3>
+                    <span class="tech-tag">Java</span>
+                    <p>Gestión de hilos, sincronización, ExecutorService y programación paralela eficiente en Java.</p>
+                    <a href="#" class="card-link">Ver documentación &gt;</a>
+                </article>
+
+
+                
+
+                <article class="card" data-category="sql">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                            </svg>
+                        </span>
+                        <span class="etiqueta-nivel intermedio">Intermedio</span>
+                    </div>
+                    <h3>Joins y Funciones de Agregación</h3>
+                    <span class="tech-tag">SQL</span>
+                    <p>Combinación de tablas con INNER, LEFT/RIGHT JOIN y uso de GROUP BY, HAVING y funciones escalares.</p>
+                    <a href="#" class="card-link">Ver documentación &gt;</a>
+                </article>
+
+
+                
+                <article class="card" data-category="html">
+                    <div class="card-header">
+                        <span class="card-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </span>
+                        <span class="etiqueta-nivel avanzado">Avanzado</span>
+                    </div>
+                    <h3>Arquitectura CSS y Metodologías</h3>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <p>Organización avanzada de estilos con BEM, preprocesadores (Sass/SCSS) y diseño modular escalable.</p>
+                    <a href="#" class="card-link">Ver documentación &gt;</a>
+                </article>
+
+
+
+
+                <article class="card" data-category="java">
+                    <div class="card-header">
+                        <span class="card-icon">&lt;/&gt;</span>
+                        <span class="etiqueta-nivel intermedio">Intermedio</span>
+                    </div>
+                    <h3>Colecciones y Generics en Java</h3>
+                    <span class="tech-tag">Java</span>
+                    <p>Manejo de ArrayList, HashMap, Sets, iteradores y tipos genéricos para estructuras de datos flexibles.</p>
+                    <a href="#" class="card-link">Ver documentación &gt;</a>
+                </article>
+
             </div>
             
-            <!-- Paginación para que se vea más extenso -->
-            <div class="paginacion">
+
+            <div class="paginacion" id="paginacion-container">
                 <button class="btn-page disabled">&lt; Anterior</button>
                 <button class="btn-page active">1</button>
                 <button class="btn-page">2</button>
@@ -224,22 +336,13 @@
 
         <footer id="footer">
             <div class="footer-container">
-    
-            <!-- Lado Izquierdo: Icono y Texto -->
                 <div class="footer-left">
-                <!-- Icono de Chispa ALICIA -->
                     <div class="alicia-icon">
-                    <!-- Reemplaza con un icono real de la chispa si lo tienes, o una imagen -->
                         <img src="../src/assets/img/logoHD.png" alt="Icono ALICIA">
-                        <!-- O alternativamente con un SVG si prefieres -->
                     </div>
-                <!-- Texto de Identificación -->
-                    <div class="footer-text">
-                    ALICIA
-                    </div>
+                    <div class="footer-text">ALICIA</div>
                 </div>
     
-                <!-- Lado Derecho: Enlaces Legales -->
                 <nav class="navegacion-legal">
                     <ul>
                         <li><a href="#">Políticas de privacidad</a></li>
@@ -247,10 +350,8 @@
                         <li><a href="#">Términos de uso</a></li>
                     </ul>
                 </nav>
-    
             </div>
         </footer>
-
 
     <script src="../src/js/catalogo.js"></script>
 </body>

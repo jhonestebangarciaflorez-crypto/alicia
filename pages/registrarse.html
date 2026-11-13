@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Cuenta - ALICIA</title>
-
-    <!-- Favicon para la pestaña -->
     <link rel="icon" type="image/png" href="../src/assets/img/logoHD.png">
-
     <link rel="stylesheet" href="../src/css/registro.css">
-    <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="login-container">
     
-    <!-- Lado Izquierdo (Panel Azul) -->
     <section class="left-panel register-panel">
         <div class="brand">
         <img src="../src/assets/img/logoHD.png" alt="Logo ALICIA" class="brand-icon">
         <span>ALICIA</span>
         </div>
 
-        <!-- Tarjetas de características del lado izquierdo -->
+
         <div class="features-list">
         <div class="feature-card">
             <div class="feature-icon">
@@ -47,7 +42,7 @@
         </div>
     </section>
 
-    <!-- Lado Derecho (Formulario de Registro) -->
+
     <section class="right-panel">
         <div class="form-wrapper">
         <h2>Crear cuenta</h2>
@@ -55,7 +50,6 @@
 
         <form id="formRegistro" action="/registro" method="post" onsubmit="return validacionCampos(event);">
             
-            <!-- Nombre Completo -->
             <div class="input-group">
             <label for="nombre">NOMBRE</label>
             <div class="input-field">
@@ -64,7 +58,7 @@
             </div>
             </div>
 
-            <!-- Correo -->
+
             <div class="input-group">
             <label for="email">CORREO ELECTRÓNICO</label>
             <div class="input-field">
@@ -73,7 +67,7 @@
             </div>
             </div>
 
-            <!-- Filas de Contraseña y Confirmar -->
+
             <div class="input-row">
             <div class="input-group">
                 <label for="password">CONTRASEÑA</label>
@@ -98,7 +92,7 @@
             </div>
             </div>
 
-            <!-- Checkbox de Términos / Ley 1581 -->
+
             <div class="terms-group">
             <input type="checkbox" id="terms" required>
             <label for="terms">
@@ -106,15 +100,15 @@
             </label>
             </div>
 
-            <!-- Botón de Registro -->
+
             <button type="submit" class="btn-submit">Crear mi cuenta</button>
 
         </form>
 
-        <!-- Footer -->
+
         <div class="form-footer">
-            <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
-            <a href="/" class="back-link">- Volver al inicio</a>
+            <p>¿Ya tienes cuenta? <a href="#">Inicia sesión</a></p>
+            <a href="#" class="back-link">- Volver al inicio</a>
         </div>
         </div>
     </section>
