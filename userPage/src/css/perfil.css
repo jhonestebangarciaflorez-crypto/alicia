@@ -1,0 +1,140 @@
+:root {
+  --sidebar-bg: #1a1e43;
+  --sidebar-card: rgba(255, 255, 255, 0.07);
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-text: #cbd5e1;
+  --sidebar-muted: #94a3b8;
+
+  --accent-blue: #2c61d3;
+  --accent-indigo: #5255e8;
+  --accent-indigo-soft: #eef2ff;
+
+  --bg-main: #f6f8fc;
+  --border-color: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* Sidebar */
+.sidebar{
+    width: 224px;
+    flex-shrink: 0;
+    background-color: var(--sidebar-bg);
+    color: white;
+    padding: 18px 14px;
+    position: sticky;
+}
+
+.sidebar-brand{
+    padding: 2px 6px 18px;
+}
+
+.brand-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.brand-title{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.brand-subtitle{
+    font-size: 11px;
+    color: var(--sidebar-muted)
+}
+
+.sidebar-user-card{
+    background-color: var(--sidebar-card);
+    border: 1px solid var(--sidebar-border);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+}
+
+.avatar-circle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(195, 195, 255);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-name{
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+.user-role-sub{
+font-size: 11px;
+color: var(--sidebar-muted);
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--sidebar-text);
+    font-size: 13.5;
+    font-weight: 500;
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.nav-item:hover{
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.nav-item.active{
+    background-color: var(--accent-blue);
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar-footer{
+    padding-top: 14px;
+    border-radius: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logout-btn{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: #f87171;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.logout-btn:hover{
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #ff4242;
+}
