@@ -134,41 +134,6 @@
         <div class="container-fluid px-0">
             <main class="flex-grow-1 p-4 bg-light overflow-y-auto" style="height: 100vh;">
             
-            <!-- BARRA SUPERIOR-->
-            <header class="d-flex justify-content-between align-items-center mb-4">
-                <!-- Buscador -->
-                <div class="input-group w-50 bg-white rounded-pill shadow-sm border px-3 py-1">
-                    <span class="input-group-text bg-transparent border-0 text-muted">
-                        <i class="bi bi-search"></i>
-                    </span>
-                    <input type="text" class="form-control border-0 shadow-none bg-transparent" placeholder="Buscar temas, guías, hilos...">
-                </div>
-
-                <!-- Notificaciones Superiores -->
-                <div class="d-flex align-items-center gap-3">
-                    <!-- Notificaciones -->
-                    <div class="position-relative">
-                        <button class="btn btn-light rounded-circle p-2 position-relative border-0 shadow-sm d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                            <i class="bi bi-bell fs-5 text-secondary"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
-                                7
-                            </span>
-                        </button>
-                    </div>
-
-                    <!-- Usuario Header -->
-                    <div class="d-flex align-items-center gap-2">
-                        <div class="rounded-circle text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0" style="width: 40px; height: 40px; background-color: #e63972; font-size: 0.9rem;">
-                            ?
-                        </div>
-                        <div class="d-flex flex-column min-w-0">
-                            <span class="user-name text-truncate">?</span>
-                            <span class="user-role-sub text-truncate" style="font-size: 0.75rem; color: #a39fc2;">?</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
             <!-- TiTULO DE LA SECCION -->
             <div class="mb-4">
                 <h2 class="fw-bold text-dark mb-1">Panel de Administración</h2>
@@ -330,6 +295,14 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- TOTAL -->
+                        <div>
+                            <hr class="my-4 text-muted opacity-25">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted" style="font-size: 0.9rem;">Total sesiones hoy</span>
+                                <span class="fw-bold" style="font-size: 1.1rem; color: #6366f1;">?</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -340,3 +313,6 @@
     <script src="./src/js/authGuard.js"></script>
 </body>
 </html>
+
+
+
