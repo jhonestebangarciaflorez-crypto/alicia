@@ -147,7 +147,12 @@
                     <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="p-2 rounded-3 bg-primary bg-opacity-10 text-primary">
-                                <i class="bi bi-people fs-4"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
                             </div>
                             <i class="bi bi-graph-up text-muted opacity-50"></i>
                         </div>
@@ -162,11 +167,15 @@
                     <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="p-2 rounded-3 bg-success bg-opacity-10 text-success">
-                                <i class="bi bi-mortarboard fs-4"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0-1.66 0z"/>
+                                    <path d="M22 10v6"/>
+                                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                                </svg>
                             </div>
                             <i class="bi bi-graph-up text-muted opacity-50"></i>
                         </div>
-                        <h3 class="fw-bold mb-1">?</h3>
+                        <h3 class="fw-bold mb-1" id="contadorFichasAdmin">?</h3>
                         <p class="text-muted mb-2" style="font-size: 0.85rem;">Fichas activas</p>
                         <small class="text-success fw-semibold" style="font-size: 0.75rem;">2 nuevas este semestre</small>
                     </div>
@@ -177,7 +186,19 @@
                     <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="p-2 rounded-3 text-danger" style="background-color: rgba(230, 57, 114, 0.1);">
-                                <i class="bi bi-robot fs-4"></i>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" rx="5" fill="#FCE7F3"/>
+                                    <g stroke="#DB2777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                        <path d="M10 3v3"/>
+                                        <circle cx="10" cy="2.5" r="0.75" fill="#DB2777"/>
+                                        <rect x="4.5" y="6" width="11" height="9" rx="2.5"/>
+                                        <circle cx="7.5" cy="9.5" r="0.75" fill="#DB2777"/>
+                                        <circle cx="12.5" cy="9.5" r="0.75" fill="#DB2777"/>
+                                        <line x1="8" y1="12.5" x2="12" y2="12.5"/>
+                                        <line x1="2.5" y1="10.5" x2="4.5" y2="10.5"/>
+                                        <line x1="15.5" y1="10.5" x2="17.5" y2="10.5"/>
+                                    </g>
+                                </svg>
                             </div>
                             <i class="bi bi-graph-up text-muted opacity-50"></i>
                         </div>
@@ -192,7 +213,14 @@
                     <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="p-2 rounded-3 bg-warning bg-opacity-10 text-warning">
-                                <i class="bi bi-exclamation-triangle fs-4"></i>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" rx="5" fill="#FEF3C7"/>
+                                    <g stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                        <circle cx="10" cy="10" r="7"/>
+                                        <line x1="10" y1="6.5" x2="10" y2="10.5"/>
+                                        <circle cx="10" cy="13.5" r="0.6" fill="#D97706"/>
+                                    </g>
+                                </svg>
                             </div>
                             <i class="bi bi-graph-up text-muted opacity-50"></i>
                         </div>
@@ -311,6 +339,7 @@
     </div>
     <script src="./src/js/admin.js"></script>
     <script src="./src/js/authGuard.js"></script>
+    <script src="./src/js/fichas.js"></script>
 </body>
 </html>
 

@@ -405,6 +405,13 @@
                         <label for="editFicha" class="form-label small fw-semibold">Ficha</label>
                         <input type="text" class="form-control" id="editFicha">
                     </div>
+                    <div class="mb-3">
+                        <label for="editEstado" class="form-label small fw-semibold">Estado</label>
+                        <select class="form-select" id="editEstado" required>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
                     <div class="d-flex justify-content-end gap-2 mt-4">
                         <button type="button" class="btn btn-light rounded-pill px-4" id="cancelarModalEditarBtn">Cancelar</button>
                         <button type="submit" class="btn text-white rounded-pill px-4" style="background-color: #e91e63;">Actualizar cambios</button>

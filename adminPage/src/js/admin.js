@@ -87,3 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+/* 
+@ Descripcion: Cargar dinámicamente el número de fichas activas en el Dashboard del Administrador.
+*/
+document.addEventListener('DOMContentLoaded', () => {
+    const cardFichasActivasAdmin = document.getElementById('contadorFichasAdmin');
+    
+    if (cardFichasActivasAdmin) {
+        // Obtenemos las fichas guardadas en el localStorage
+        const fichas = JSON.parse(localStorage.getItem('fichas')) || [];
+        
+        // Filtramos y contamos cuántas están en estado 'activa'
+        const fichasActivasCount = fichas.filter(f => f.estado === 'activa').length;
+        
+        // Mostramos el número real en la tarjeta del dashboard
+        cardFichasActivasAdmin.textContent = fichasActivasCount;
+    }
+});

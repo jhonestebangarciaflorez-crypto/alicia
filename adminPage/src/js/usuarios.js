@@ -272,9 +272,9 @@ document.addEventListener('click', (e) => {
 
 
 
+
 /* 
-@ Descripcion: Lógica para abrir el modal de edición, rellenarlo con los datos 
-actuales y guardar los cambios modificados en el localStorage.
+@ Descripcion: Lógica actualizada para incluir el campo 'estado' al editar un usuario.
 */
 document.addEventListener('DOMContentLoaded', () => {
     const modalEditar = document.getElementById('modalEditarUsuario');
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cerrarModalEditarBtn) cerrarModalEditarBtn.addEventListener('click', cerrarModalEditar);
     if (cancelarModalEditarBtn) cancelarModalEditarBtn.addEventListener('click', cerrarModalEditar);
 
-    // Escuchar clics en los botones de editar de la tabla
+    // 1. Escuchar clics en los botones de editar de la tabla
     document.addEventListener('click', (e) => {
         const btnEditar = e.target.closest('.btn-editar');
         if (btnEditar && modalEditar) {
@@ -298,12 +298,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = usuarios[index];
 
             if (user) {
-                // Rellenar el formulario con los datos actuales del usuario
+                // Rellenar el formulario con los datos actuales del usuario (incluyendo el estado)
                 document.getElementById('editIndex').value = index;
                 document.getElementById('editNombre').value = user.nombre || '';
                 document.getElementById('editEmail').value = user.correo || '';
                 document.getElementById('editRol').value = user.rol || 'usuario';
                 document.getElementById('editFicha').value = user.ficha || 'PROG-2026-A';
+                document.getElementById('editEstado').value = user.estado || 'activo';
 
                 // Mostrar el modal
                 modalEditar.style.display = 'flex';
@@ -311,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Guardar los cambios editados
+    // 2. Guardar los cambios editados
     if (formEditarUsuario) {
         formEditarUsuario.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -320,22 +321,25 @@ document.addEventListener('DOMContentLoaded', () => {
             let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
             if (usuarios[index]) {
-                // Actualizar los datos del usuario en esa posición
+                // Actualizar los datos, incluyendo el estado seleccionado en el modal
                 usuarios[index].nombre = document.getElementById('editNombre').value.trim();
                 usuarios[index].correo = document.getElementById('editEmail').value.trim();
                 usuarios[index].rol = document.getElementById('editRol').value;
                 usuarios[index].ficha = document.getElementById('editFicha').value.trim();
+                usuarios[index].estado = document.getElementById('editEstado').value; // <--- NUEVO: Guarda el nuevo estado
 
                 // Guardar de vuelta en el localStorage
                 localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
                 alert('¡Usuario actualizado exitosamente!');
                 cerrarModalEditar();
-                location.reload(); // Recargar para ver los cambios reflejados
+                location.reload(); // Recargar para ver los cambios reflejados en la tabla
             }
         });
     }
 });
+
+
 
 
 
@@ -516,3 +520,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar la tabla por defecto al iniciar la página
     cargarTablaUsuarios();
 });
+
