@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALICIA - Mi Perfil</title>
+    <link rel="icon" type="image/png" href="../global_src/assets/img/logoHD.png">
+    <link rel="stylesheet" href="../adminPage/src/css/admin.css">
+    <link rel="stylesheet" href="../global_src/css/bootstrap.css">
+</head>
+<body>
+    <div class="d-flex min-vh-100 overflow-hidden">
+        <!--- Sidebar --->
+        <aside class="sidebar d-flex flex-column p-2 flex-shrink-0" id="sidebar" style="width: 240px; height: 100vh; position: sticky; top: 0; z-index: 1000;">
+            <div class="sidebar-brand d-flex align-items-center gap-2 mb-1">
+                <div aria-hidden="true" class="brand-icon-wrapper d-flex align-items-center justify-content-center rounded-3">
+                    <img src="../global_src/assets/img/logo01.png" class="brand-icon">
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="brand-title fw-bold text-white" style="letter-spacing: 0.5px;">ALICIA</span>
+                </div>
+            </div>
+
+            <hr class="divider-custom my-1" style="border-color: #2e295e; opacity: 1;">
+
+            <!-- 2. Tarjeta de Usuario -->
+            <div class="sidebar-user-card d-flex align-items-center gap-2 p-2 mb-3 rounded-3" style="background-color: #272251;">
+                <div class="avatar-circle rounded-circle overflow-hidden flex-shrink-0 d-flex align-items-center justify-content-center">
+                    <img src="src/assets/img/user.png" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="d-flex flex-column min-w-0">
+                    <span class="user-name text-truncate fw-semibold text-white" id="sidebarUserName">Estudiante</span>
+                    <span class="user-role-sub text-truncate" style="font-size: 0.75rem; color: #a39fc2;">Administrador</span>
+                </div>
+            </div>
+
+            <hr class="divider-custom mb-3 mt-1" style="border-color: #2e295e; opacity: 1;">
+
+            <!-- 3. Navegación Principal -->
+            <nav class="nav flex-column gap-1 mb-auto" aria-label="Navegación principal">
+                <a class="nav-item d-flex align-items-center justify-content-between py-2 px-3 text-decoration-none" href="admin.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="7" height="7" x="3" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="14" rx="1"/>
+                            <rect width="7" height="7" x="3" y="14" rx="1"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="usuarios.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <span>Usuarios</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="fichas.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0-1.66 0z"/>
+                            <path d="M22 10v6"/>
+                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                        </svg>
+                        <span>Fichas</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="reportes.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" x2="18" y1="20" y2="10"/>
+                            <line x1="12" x2="12" y1="20" y2="4"/>
+                            <line x1="6" x2="6" y1="20" y2="14"/>
+                            <line x1="2" x2="22" y1="20" y2="20"/>
+                        </svg>
+                        <span>Reportes</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="catalogo.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 6 4 14"/>
+                            <path d="M12 6v14"/>
+                            <path d="M8 8v12"/>
+                            <path d="M4 4v16"/>
+                        </svg>
+                        <span>Catálogo</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex active align-items-center py-2 px-3 text-decoration-none" href="perfil.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Mi Perfil</span>
+                    </div>
+                </a>
+            </nav>
+
+            <hr class="divider-custom my-3" style="border-color: #2e295e; opacity: 1;">
+
+            <div class="sidebar-footer mt-auto">
+                <div class="d-flex align-items-center mb-3 px-2" style="font-size: 0.85rem; color: #b8b5d3;">
+                    <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #e63972; display: inline-block;"></span>
+                    Rol: <strong class="ms-1 text-white">Administrador</strong>
+                </div>
+                <button class="logout-btn d-flex align-items-center gap-2 w-100 py-2 px-3 border-0 bg-transparent text-start" id="logoutBtn" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4 bg-light overflow-y-auto" style="height: 100vh;">
+            <div class="mb-4">
+                <h2 class="fw-bold mb-1">Mi Perfil</h2>
+                <p class="text-muted small mb-0">Configuración y estadísticas</p>
+            </div>
+
+            <!-- Contenedor para alertas dinámicas -->
+            <div id="alertContainer"></div>
+
+            <div class="row g-4">
+                <!-- Columna Izquierda: Perfil y Resumen de Actividad -->
+                <div class="col-lg-4">
+                    <!-- Tarjeta de Perfil -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4 text-center mb-4">
+                        <div class="position-relative d-inline-block mx-auto mb-3">
+                            <div class="rounded-4 text-white d-flex align-items-center justify-content-center fw-bold fs-2 shadow-sm mx-auto" style="width: 90px; height: 90px; background: linear-gradient(135deg, #e91e63, #c2185b);" id="profileAvatarInitial">
+                                ?
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-1" id="profileNameCard">Nombre de usuario</h5>
+                        <p class="text-muted small mb-3" id="profileEmailCard">correo@ejemplo.com</p>
+                        <div class="mb-3">
+                            <span class="badge px-3 py-2 rounded-pill fw-medium" style="background-color: #fce4ec; color: #e91e63;">Administrador</span>
+                        </div>
+                        <hr class="text-muted opacity-25 my-3">
+                        <div class="text-muted small d-flex align-items-center justify-content-center gap-2" id="profileRegisterDate">
+                            <i class="bi bi-calendar3"></i> Registrado recientemente
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Resumen de Actividad -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <h6 class="fw-bold mb-3">Resumen de actividad</h6>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center gap-2 text-muted small">
+                                    <i class="bi bi-people text-danger fs-6"></i> Usuarios gestionados
+                                </div>
+                                <span class="fw-bold text-dark">184</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center gap-2 text-muted small">
+                                    <i class="bi bi-journal-text text-danger fs-6"></i> Fichas administradas
+                                </div>
+                                <span class="fw-bold text-dark">7</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center gap-2 text-muted small">
+                                    <i class="bi bi-shield-exclamation text-danger fs-6"></i> Alertas resueltas
+                                </div>
+                                <span class="fw-bold text-dark">31</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center gap-2 text-muted small">
+                                    <i class="bi bi-activity text-danger fs-6"></i> Reportes generados
+                                </div>
+                                <span class="fw-bold text-dark">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Pestañas, Formulario y Nivel de Competencia -->
+                <div class="col-lg-8">
+                    <!-- Tarjeta de Información Personal -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                        <h5 class="fw-bold mb-4">Información personal</h5>
+                        
+                        <form id="formPersonalInfo">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">NOMBRE DE USUARIO</label>
+                                    <input type="text" id="inputNombre" class="form-control rounded-3 py-2 bg-white border" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">CORREO ELECTRÓNICO</label>
+                                    <input type="email" id="inputCorreo" class="form-control rounded-3 py-2 bg-white border" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">ROL</label>
+                                <div class="form-control rounded-3 py-2 bg-light d-flex align-items-center justify-content-between border">
+                                    <span class="badge px-3 py-1 fw-medium" style="background-color: #fce4ec; color: #e91e63;">Administrador</span>
+                                    <small class="text-muted" style="font-size: 0.75rem;">El rol es asignado por el sistema.</small>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn text-white px-4 py-2 rounded-pill shadow-sm fw-medium" style="background-color: #e91e63;">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tarjeta de Cambiar Contraseña -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                        <h5 class="fw-bold mb-4">Cambiar contraseña</h5>
+
+                        <form id="formPassword">
+                            <!-- Contraseña Actual -->
+                            <div class="mb-3">
+                                <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">CONTRASEÑA ACTUAL</label>
+                                <div class="input-group border rounded-3 bg-white overflow-hidden">
+                                    <span class="input-group-text bg-transparent border-0 ps-3">
+                                        <i class="bi bi-lock text-muted"></i>
+                                    </span>
+                                    <input type="password" id="inputPasswordActual" class="form-control border-0 bg-transparent shadow-none py-2 ps-2" placeholder="********" required>
+                                </div>
+                            </div>
+
+                            <!-- Nueva Contraseña -->
+                            <div class="mb-3">
+                                <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">NUEVA CONTRASEÑA</label>
+                                <div class="input-group border rounded-3 bg-white overflow-hidden">
+                                    <span class="input-group-text bg-transparent border-0 ps-3">
+                                        <i class="bi bi-lock text-muted"></i>
+                                    </span>
+                                    <input type="password" id="inputPasswordNueva" class="form-control border-0 bg-transparent shadow-none py-2 ps-2" placeholder="********" required>
+                                </div>
+                            </div>
+
+                            <!-- Confirmar Nueva Contraseña -->
+                            <div class="mb-4">
+                                <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">CONFIRMAR NUEVA CONTRASEÑA</label>
+                                <div class="input-group border rounded-3 bg-white overflow-hidden">
+                                    <span class="input-group-text bg-transparent border-0 ps-3">
+                                        <i class="bi bi-lock text-muted"></i>
+                                    </span>
+                                    <input type="password" id="inputPasswordConfirmar" class="form-control border-0 bg-transparent shadow-none py-2 ps-2" placeholder="********" required>
+                                </div>
+                            </div>
+
+                            <!-- Botón Actualizar Contraseña -->
+                            <div>
+                                <button type="submit" class="btn text-white px-4 py-2 rounded-pill shadow-sm fw-medium" style="background-color: #e91e63;">Actualizar contraseña</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tarjeta: Nivel de Competencia Autónoma -->
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <h5 class="fw-bold mb-4">Nivel de Competencia Autónoma</h5>
+
+                        <!-- Java -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold text-dark">Java</span>
+                                    <span class="badge bg-warning bg-opacity-10 text-warning px-2 py-0 rounded-pill fw-medium" style="font-size: 0.7rem;">Principiante</span>
+                                </div>
+                                <span class="fw-bold" style="color: #6366f1;">50%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar rounded-pill" role="progressbar" style="width: 50%; background-color: #6366f1;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- HTML/CSS -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold text-dark">HTML/CSS</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success px-2 py-0 rounded-pill fw-medium" style="font-size: 0.7rem;">Avanzado</span>
+                                </div>
+                                <span class="fw-bold text-success">35%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar rounded-pill bg-success" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- SQL -->
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold text-dark">SQL</span>
+                                    <span class="badge bg-warning bg-opacity-10 text-warning px-2 py-0 rounded-pill fw-medium" style="font-size: 0.7rem;">Principiante</span>
+                                </div>
+                                <span class="fw-bold" style="color: #f59e0b;">20%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar rounded-pill bg-warning" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./src/js/admin.js"></script>
+    <script src="./src/js/authGuard.js"></script>
+    <script src="./src/js/perfil.js"></script>
+</body>
+</html>

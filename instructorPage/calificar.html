@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALICIA</title>
+    <link rel="icon" type="image/png" href="../global_src/assets/img/logoHD.png">
+    <link rel="stylesheet" href="../adminPage/src/css/admin.css">
+    <link rel="stylesheet" href="../global_src/css/bootstrap.css">
+</head>
+<body>
+    <div class="d-flex min-vh-100 overflow-hidden">
+        <!--- Sidebar --->
+        <aside class="sidebar d-flex flex-column p-2 flex-shrink-0" id="sidebar" style="width: 240px; height: 100vh; position: sticky; top: 0; z-index: 1000;">
+            <div class="sidebar-brand d-flex align-items-center gap-2 mb-1">
+                <div aria-hidden="true" class="brand-icon-wrapper d-flex align-items-center justify-content-center rounded-3">
+                    <img src="../global_src/assets/img/logo01.png" class="brand-icon" >
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="brand-title fw-bold text-white" style="letter-spacing: 0.5px;">ALICIA</span>
+                </div>
+            </div>
+
+            <hr class="divider-custom my-1" style="border-color: #2e295e; opacity: 1;">
+
+            <!-- 2. Tarjeta de Usuario -->
+            <div class="sidebar-user-card d-flex align-items-center gap-2 p-2 mb-3 rounded-3" style="background-color: #272251;">
+                <div class="avatar-circle rounded-circle overflow-hidden flex-shrink-0 d-flex align-items-center justify-content-center">
+                    <img src="src/assets/img/user.png" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="d-flex flex-column min-w-0">
+                    <span class="user-name text-truncate fw-semibold text-white">Estudiante</span>
+                    <span class="user-role-sub text-truncate" style="font-size: 0.75rem; color: #a39fc2;">Administrador</span>
+                </div>
+            </div>
+
+            <hr class="divider-custom mb-3 mt-1" style="border-color: #2e295e; opacity: 1;">
+
+            <!-- 3. Navegación Principal -->
+            <nav class="nav flex-column gap-1 mb-auto" aria-label="Navegación principal">
+                <a class="nav-item d-flex align-items-center justify-content-between py-2 px-3 text-decoration-none" href="instructor.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="7" height="7" x="3" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="14" rx="1"/>
+                            <rect width="7" height="7" x="3" y="14" rx="1"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="fichas.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0-1.66 0z"/>
+                            <path d="M22 10v6"/>
+                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                        </svg>
+                        <span>Fichas</span>
+                    </div>
+                </a>
+
+                <a class="nav-item active  d-flex align-items-center py-2 px-3 text-decoration-none" href="calificar.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20" height="20" rx="5" />
+                            <path d="M10 3.5L12.09 7.74L16.76 8.42L13.38 11.71L14.18 16.36L10 14.17L5.82 16.36L6.62 11.71L3.24 8.42L7.91 7.74L10 3.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                        <span>Calificar</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="catalogo.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 6 4 14"/>
+                            <path d="M12 6v14"/>
+                            <path d="M8 8v12"/>
+                            <path d="M4 4v16"/>
+                        </svg>
+                        <span>Catálogo</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="perfil.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Mi Perfil</span>
+                    </div>
+                </a>
+            </nav>
+
+            <hr class="divider-custom my-3" style="border-color: #2e295e; opacity: 1;">
+
+            <div class="sidebar-footer mt-auto">
+                <div class="d-flex align-items-center mb-3 px-2" style="font-size: 0.85rem; color: #b8b5d3;">
+                    <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #e63972; display: inline-block;"></span>
+                    Rol: <strong class="ms-1 text-white">Instructor</strong>
+                </div>
+                <button class="logout-btn d-flex align-items-center gap-2 w-100 py-2 px-3 border-0 bg-transparent text-start" id="logoutBtn" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </aside>
+
+
+
+        <!--- Main --->
+        <div class="container-fluid px-0">
+            <main class="flex-grow-1 p-4 bg-light overflow-y-auto" style="height: 100vh;">
+                <!-- Encabezado de la Sección -->
+                <div class="mb-4">
+                    <h2 class="fw-bold mb-1">Calificar Entregas</h2>
+                    <p class="text-muted small mb-0">Revisa y califica los talleres enviados por los estudiantes</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Columna Izquierda: Listado de Entregas (Pendientes y Calificadas) -->
+                    <div class="col-lg-6">
+                    
+                    <!-- Sección: Entregas Pendientes -->
+                    <div class="mb-4">
+                        <h6 class="text-muted fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 0.5px;">ENTREGAS PENDIENTES</h6>
+                        
+                        <div class="d-flex flex-column gap-3" id="lista-pendientes">
+                        <!-- Item Pendiente 1 -->
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white d-flex flex-row align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width: 45px; height: 45px; background-color: #d97706;">
+                                21
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">user_4821</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Taller 2 - Estructuras de Control &bull; 21 jul 2025</small>
+                            </div>
+                            </div>
+                            <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-1 rounded-pill fw-medium" style="font-size: 0.75rem;">Pendiente</span>
+                        </div>
+
+                        <!-- Item Pendiente 2 -->
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white d-flex flex-row align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width: 45px; height: 45px; background-color: #d97706;">
+                                34
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">user_2934</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Taller 2 - Estructuras de Control &bull; 22 jul 2025</small>
+                            </div>
+                            </div>
+                            <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-1 rounded-pill fw-medium" style="font-size: 0.75rem;">Pendiente</span>
+                        </div>
+
+                        <!-- Item Pendiente 3 -->
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white d-flex flex-row align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width: 45px; height: 45px; background-color: #d97706;">
+                                19
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">user_5519</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Taller 3 - Flexbox &bull; 26 jul 2025</small>
+                            </div>
+                            </div>
+                            <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-1 rounded-pill fw-medium" style="font-size: 0.75rem;">Pendiente</span>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección: Entregas Calificadas -->
+                    <div>
+                        <h6 class="text-muted fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 0.5px;">CALIFICADAS</h6>
+                        
+                        <div class="d-flex flex-column gap-3" id="lista-calificadas">
+                        <!-- Item Calificado -->
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white d-flex flex-row align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width: 45px; height: 45px; background-color: #0d9488;">
+                                02
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">user_7102</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Taller 1 - Variables Java</small>
+                            </div>
+                            </div>
+                            <span class="fw-bold fs-5" style="color: #6366f1;">4.8</span>
+                        </div>
+
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white d-flex flex-row align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width: 45px; height: 45px; background-color: #0d9488;">
+                                15
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">user_7102</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">Taller 1 - Variables Java</small>
+                            </div>
+                            </div>
+                            <span class="fw-bold fs-5" style="color: #6366f1;">3.0</span>
+                        </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+
+                    <!-- Columna Derecha: Panel de Calificación / Detalle Dinámico -->
+                    <div class="col-lg-6" id="panel-derecho-container">
+                        <!-- Estado Vacío por defecto -->
+                        <div class="card border-0 shadow-sm rounded-4 p-5 h-100 bg-white d-flex align-items-center justify-content-center text-center" style="border: 2px dashed #dee2e6 !important;" id="panel-vacio">
+                            <div class="py-5">
+                                <div class="text-muted mb-3 fs-1 opacity-50">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                                <p class="text-muted mb-0" style="font-size: 0.95rem;">Selecciona una entrega para calificar</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+<!--
+                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                    <h5 class="fw-bold mb-4">Calificar entrega</h5>
+
+
+                    <div class="p-3 rounded-4 bg-light mb-3 border-0">
+                        <small class="text-muted d-block mb-1" style="font-size: 0.75rem;">Estudiante</small>
+                        <h6 class="fw-bold text-dark mb-1">usuario seleccionado</h6>
+                        <small class="text-muted" style="font-size: 0.8rem;">taller del usuario seleccionado</small>
+                    </div>
+
+
+                    <div class="p-3 rounded-4 bg-white border border-light-subtle d-flex align-items-center justify-content-between mb-4 shadow-sm" style="border-style: dashed !important;">
+                        <div class="d-flex align-items-center gap-2 text-secondary">
+                        <i class="bi bi-file-earmark-text fs-5 text-muted"></i>
+                        <span class="small fw-medium text-dark">taller_entrega.pdf</span>
+                        </div>
+                        <a href="#" class="text-decoration-none small fw-bold" style="color: #6366f1;">Ver PDF</a>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">CALIFICACIÓN (0.0 - 5.0)</label>
+                        <input type="number" class="form-control rounded-3 py-2 bg-white border" value="3.0"> 
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label class="form-label text-muted fw-bold" style="font-size: 0.7rem; letter-spacing: 0.5px;">RETROALIMENTACIÓN</label>
+                        <textarea class="form-control rounded-3 bg-white border" rows="4" placeholder="Escribe comentarios sobre la entrega del estudiante..."></textarea>
+                    </div>
+
+
+                    <div>
+                        <button class="btn text-white w-100 py-2 rounded-pill shadow-sm fw-medium" style="background-color: #0d9488;">Guardar calificación</button>
+                    </div>
+                    </div>-->
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="./src/js/instructor.js"></script>
+    <script src="./src/js/authGuard.js"></script>
+    <script src="./src/js/fichas.js"></script>
+    <script src="./src/js/calificar.js"></script>
+</body>
+</html>

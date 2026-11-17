@@ -371,12 +371,30 @@ document.addEventListener('click', (e) => {
             columnaCatalogo.classList.add('col-lg-7');
             panelDerecho.classList.remove('d-none'); // Muestra el panel derecho
 
+            // Seleccionar icono SVG según el lenguaje/tecnología del tema
+            let iconoSvg = '';
+            const tec = tema.tecnologia ? tema.tecnologia.toLowerCase() : '';
+
+            if (tec.includes('java')) {
+                // Icono de Código / Llaves para Java
+                iconoSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`;
+            } else if (tec.includes('html')) {
+                // Icono de Diseño Web para HTML/CSS
+                iconoSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>`;
+            } else if (tec.includes('sql')) {
+                // Icono de Base de Datos para SQL
+                iconoSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>`;
+            } else {
+                // Icono por defecto genérico
+                iconoSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
+            }
+
             // Rellenar la información del tema seleccionado
             cardDetalle.innerHTML = `
                 <div class="d-flex justify-content-between align-items-start mb-3">
                     <div class="d-flex align-items-center gap-2">
                         <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                            💻
+                            ${iconoSvg}
                         </div>
                         <div>
                             <h5 class="fw-bold mb-0 text-dark">${tema.titulo}</h5>
@@ -384,8 +402,10 @@ document.addEventListener('click', (e) => {
                         </div>
                     </div>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-sm btn-light text-secondary border-0" title="Editar tema">✏️</button>
-                        <button class="btn btn-sm btn-light text-danger border-0" id="cerrarDetalleBtn" title="Cerrar panel">✕</button>
+                        <button class="btn btn-sm btn-light text-secondary border-0" title="Editar tema">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7d8da1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </button>
+                        <button class="btn btn-sm btn-light text-danger border-0" id="cerrarDetalleBtn" title="Cerrar panel">X</button>
                     </div>
                 </div>
                 <p class="text-secondary mb-3">${tema.descripcion}</p>
@@ -401,7 +421,7 @@ document.addEventListener('click', (e) => {
                 </div>
 
                 <div class="p-2 rounded-3 bg-light text-primary small fw-semibold text-center">
-                    🤖 El Tutor IA está listo para guiarte en este tema ↓
+                    El Tutor IA está listo para guiarte en este tema ↓
                 </div>
             `;
         }
