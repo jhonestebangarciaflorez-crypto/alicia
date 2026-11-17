@@ -1,12 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprendiz</title>
+    <title>ALICIA</title>
+    <link rel="icon" type="image/png" href="../global_src/assets/img/logoHD.png">
+    <link rel="stylesheet" href="../adminPage/src/css/admin.css">
+    <link rel="stylesheet" href="../global_src/css/bootstrap.css">
 </head>
 <body>
-    
+    <div class="d-flex min-vh-100 overflow-hidden">
+        <!--- Sidebar --->
+        <aside class="sidebar d-flex flex-column p-2 flex-shrink-0" id="sidebar" style="width: 240px; height: 100vh; position: sticky; top: 0; z-index: 1000;">
+            <div class="sidebar-brand d-flex align-items-center gap-2 mb-1">
+                <div aria-hidden="true" class="brand-icon-wrapper d-flex align-items-center justify-content-center rounded-3">
+                    <img src="../global_src/assets/img/logo01.png" class="brand-icon" >
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="brand-title fw-bold text-white" style="letter-spacing: 0.5px;">ALICIA</span>
+                </div>
+            </div>
+
+            <hr class="divider-custom my-1" style="border-color: #2e295e; opacity: 1;">
+
+            <!-- 2. Tarjeta de Usuario -->
+            <div class="sidebar-user-card d-flex align-items-center gap-2 p-2 mb-3 rounded-3" style="background-color: #272251;">
+                <div class="avatar-circle rounded-circle overflow-hidden flex-shrink-0 d-flex align-items-center justify-content-center">
+                    <img src="src/assets/img/user.png" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="d-flex flex-column min-w-0">
+                    <span class="user-name text-truncate fw-semibold text-white">Estudiante</span>
+                    <span class="user-role-sub text-truncate" style="font-size: 0.75rem; color: #a39fc2;">Administrador</span>
+                </div>
+            </div>
+
+            <hr class="divider-custom mb-3 mt-1" style="border-color: #2e295e; opacity: 1;">
+
+            <!-- 3. Navegación Principal -->
+            <nav class="nav flex-column gap-1 mb-auto" aria-label="Navegación principal">
+                <a class="nav-item active d-flex align-items-center justify-content-between py-2 px-3 text-decoration-none" href="admin.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="7" height="7" x="3" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="14" rx="1"/>
+                            <rect width="7" height="7" x="3" y="14" rx="1"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="ficha.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0-1.66 0z"/>
+                            <path d="M22 10v6"/>
+                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                        </svg>
+                        <span>Mi Ficha</span>
+                    </div>
+                </a>
+
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="catalogo.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 6 4 14"/>
+                            <path d="M12 6v14"/>
+                            <path d="M8 8v12"/>
+                            <path d="M4 4v16"/>
+                        </svg>
+                        <span>Catálogo</span>
+                    </div>
+                </a>
+
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="perfil.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Mi Perfil</span>
+                    </div>
+                </a>
+            </nav>
+
+            <hr class="divider-custom my-3" style="border-color: #2e295e; opacity: 1;">
+
+            <div class="sidebar-footer mt-auto">
+                <div class="d-flex align-items-center mb-3 px-2" style="font-size: 0.85rem; color: #b8b5d3;">
+                    <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #e63972; display: inline-block;"></span>
+                    Rol: <strong class="ms-1 text-white">Aprendiz</strong>
+                </div>
+                <button class="logout-btn d-flex align-items-center gap-2 w-100 py-2 px-3 border-0 bg-transparent text-start" id="logoutBtn" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </aside>
+
+
+
+
+        <!--- Main --->
+        <div class="container-fluid px-0">
+            <main class="flex-grow-1 p-4 bg-light overflow-y-auto" style="height: 100vh;">
+                <!-- Tarjetas Superiores de Métricas (4 columnas) -->
+                <div class="row g-4 mb-4">
+                    <!-- Tarjeta 1: Sesiones con IA -->
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 position-relative">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                            <svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#EEF2FF"/>
+                                <g stroke="#4F46E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M10 3v3"/>
+                                    <circle cx="10" cy="2.5" r="0.75" fill="#4F46E5"/>
+                                    <rect x="4.5" y="6" width="11" height="9" rx="2.5"/>
+                                    <circle cx="7.5" cy="9.5" r="0.75" fill="#4F46E5"/>
+                                    <circle cx="12.5" cy="9.5" r="0.75" fill="#4F46E5"/>
+                                    <line x1="8" y1="12.5" x2="12" y2="12.5"/>
+                                    <line x1="2.5" y1="10.5" x2="4.5" y2="10.5"/>
+                                    <line x1="15.5" y1="10.5" x2="17.5" y2="10.5"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="text-muted opacity-50"><i class="bi bi-graph-up-arrow"></i></span>
+                        </div>
+                        <h3 class="fw-bold mb-1 text-dark">24</h3>
+                        <p class="text-muted small mb-3">Sesiones con IA</p>
+                        <div class="mt-auto">
+                        <span class="text-primary small fw-medium" style="font-size: 0.8rem;">+3 esta semana</span>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Temas estudiados -->
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 position-relative">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                            <svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#D1FAE5"/>
+                                <g stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M10 5.5C8 4.5 5.5 4.5 3.5 5.5V14.5C5.5 13.5 8 13.5 10 14.5C12 13.5 14.5 13.5 16.5 14.5V5.5C14.5 4.5 12 4.5 10 5.5Z"/>
+                                    <path d="M10 5.5V14.5"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="text-muted opacity-50"><i class="bi bi-graph-up-arrow"></i></span>
+                        </div>
+                        <h3 class="fw-bold mb-1 text-dark">47</h3>
+                        <p class="text-muted small mb-3">Temas estudiados</p>
+                        <div class="mt-auto">
+                        <span class="text-success small fw-medium" style="font-size: 0.8rem;">+8 este mes</span>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Entregas realizadas -->
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 position-relative">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                            <svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#FEF3C7"/>
+                                <g stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M6 3.5H11L14 6.5V15.5C14 16.0523 13.5523 16.5 13 16.5H6C5.44772 16.5 5 16.0523 5 15.5V4.5C5 3.94772 5.44772 3.5 6 3.5Z"/>
+                                    <path d="M11 3.5V6.5H14"/>
+                                    <line x1="7.5" y1="9.5" x2="11.5" y2="9.5"/>
+                                    <line x1="7.5" y1="12.5" x2="11.5" y2="12.5"/>
+                                </g>
+                            </svg>
+
+                        </div>
+                        <span class="text-muted opacity-50"><i class="bi bi-graph-up-arrow"></i></span>
+                        </div>
+                        <h3 class="fw-bold mb-1 text-dark">12</h3>
+                        <p class="text-muted small mb-3">Entregas realizadas</p>
+                        <div class="mt-auto">
+                        <span class="text-warning small fw-medium" style="font-size: 0.8rem;">2 pendientes</span>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Tarjeta 4: Promedio actual -->
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100 position-relative">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="rounded-circle bg-danger bg-opacity-10 text-danger d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;">
+                            <svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#FCE7F3"/>
+                                <path d="M10 3.5L12.09 7.74L16.76 8.42L13.38 11.71L14.18 16.36L10 14.17L5.82 16.36L6.62 11.71L3.24 8.42L7.91 7.74L10 3.5Z" stroke="#DB2777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <span class="text-muted opacity-50"><i class="bi bi-graph-up-arrow"></i></span>
+                        </div>
+                        <h3 class="fw-bold mb-1 text-dark">4.3</h3>
+                        <p class="text-muted small mb-3">Promedio actual</p>
+                        <div class="mt-auto">
+                        <span class="text-danger small fw-medium" style="font-size: 0.8rem;"><i class="bi bi-arrow-up-short"></i> 0.2 vs anterior</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Sección Inferior (2 Columnas: Nivel de Competencia Autónoma y Actividad Reciente) -->
+                <div class="row g-4">
+                    
+                    <!-- Columna Izquierda: Nivel de Competencia Autónoma -->
+                    <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h5 class="fw-bold mb-0">Nivel de Competencia Autónoma</h5>
+                        <i class="bi bi-bar-chart text-muted"></i>
+                        </div>
+                        <p class="text-muted small mb-4">Progreso por lenguaje de programación</p>
+
+                        <div class="d-flex flex-column gap-4">
+                        <!-- Java -->
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="fw-bold text-dark">Java</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-pill fw-medium" style="font-size: 0.75rem;">Intermedio</span>
+                            </div>
+                            <span class="fw-bold" style="color: #6366f1;">68%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                            <div class="progress-bar rounded-pill" role="progressbar" style="width: 68%; background-color: #6366f1;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- HTML/CSS -->
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="fw-bold text-dark">HTML/CSS</span>
+                                <span class="badge bg-success bg-opacity-10 text-success px-2 py-1 rounded-pill fw-medium" style="font-size: 0.75rem;">Avanzado</span>
+                            </div>
+                            <span class="fw-bold text-success">85%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                            <div class="progress-bar rounded-pill bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- SQL -->
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="fw-bold text-dark">SQL</span>
+                                <span class="badge bg-warning bg-opacity-10 text-warning px-2 py-1 rounded-pill fw-medium" style="font-size: 0.75rem;">Principiante</span>
+                            </div>
+                            <span class="fw-bold text-warning">40%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                            <div class="progress-bar rounded-pill bg-warning" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+
+                    <!-- Columna Derecha: Actividad Reciente -->
+                    <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+                        <h5 class="fw-bold mb-4">Actividad Reciente</h5>
+
+                        <div class="d-flex flex-column gap-3">
+                        <!-- Actividad 1 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center flex-shrink-0 mt-1" style="width: 30px; height: 30px;">
+                            <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#EEF2FF"/>
+                                <g stroke="#4F46E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M10 3v3"/>
+                                    <circle cx="10" cy="2.5" r="0.75" fill="#4F46E5"/>
+                                    <rect x="4.5" y="6" width="11" height="9" rx="2.5"/>
+                                    <circle cx="7.5" cy="9.5" r="0.75" fill="#4F46E5"/>
+                                    <circle cx="12.5" cy="9.5" r="0.75" fill="#4F46E5"/>
+                                    <line x1="8" y1="12.5" x2="12" y2="12.5"/>
+                                    <line x1="2.5" y1="10.5" x2="4.5" y2="10.5"/>
+                                    <line x1="15.5" y1="10.5" x2="17.5" y2="10.5"/>
+                                </g>
+                            </svg>
+                            </div>
+                            <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Sesión con Tutor IA: "Excepciones en Java"</h6>
+                            <small class="text-muted" style="font-size: 0.75rem;">Hace 2 horas</small>
+                            </div>
+                        </div>
+
+                        <!-- Actividad 2 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center flex-shrink-0 mt-1" style="width: 30px; height: 30px;">
+                            <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#D1FAE5"/>
+                                <path d="M10 4V13M10 13L6 9M10 13L14 9M4 16H16" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            </div>
+                            <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Descargaste: Taller 3 - Flexbox Layout</h6>
+                            <small class="text-muted" style="font-size: 0.75rem;">Ayer 4:15 PM</small>
+                            </div>
+                        </div>
+
+                        <!-- Actividad 3 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center flex-shrink-0 mt-1" style="width: 30px; height: 30px;">
+                            <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#FEF3C7"/>
+                                <g stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M10 5.5C8 4.5 5.5 4.5 3.5 5.5V14.5C5.5 13.5 8 13.5 10 14.5C12 13.5 14.5 13.5 16.5 14.5V5.5C14.5 4.5 12 4.5 10 5.5Z"/>
+                                    <path d="M10 5.5V14.5"/>
+                                </g>
+                            </svg>
+                            </div>
+                            <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Leíste: "JOINs y Subconsultas SQL"</h6>
+                            <small class="text-muted" style="font-size: 0.75rem;">Ayer 2:00 PM</small>
+                            </div>
+                        </div>
+
+                        <!-- Actividad 4 -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center flex-shrink-0 mt-1" style="width: 30px; height: 30px;">
+                            <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="20" height="20" rx="5" fill="#D1FAE5"/>
+                                <g stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <circle cx="10" cy="10" r="7"/>
+                                    <path d="M7 10L9 12L13 8"/>
+                                </g>
+                            </svg>
+                            </div>
+                            <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Entregaste: Taller 1 - Variables Java</h6>
+                            <small class="text-muted" style="font-size: 0.75rem;">Hace 3 días</small>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+                </main>
+        </div>
+    </div>
+
+
+
     <script src="./src/js/authGuard.js"></script>
+    <script src="./src/js/aprendiz.js"></script>
+    <script src="./src/js/perfil.js"></script>
+
+
+
 </body>
 </html>
