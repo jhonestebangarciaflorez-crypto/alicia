@@ -5,66 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - ALICIA</title>
     <link rel="icon" type="image/png" href="../global_src/assets/img/logoHD.png">
-    <link rel="stylesheet" href="src/css/user.css">
     <link rel="stylesheet" href="../global_src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/user.css">
 </head>
 <body>
     <div class="d-flex min-vh-100">
-        <!--- Sidebar --->
-        <aside class="sidebar d-flex flex-column" id="sidebar">
-            <div class="sidebar-brand d-flex align-items-center gap-2">
-                <div aria-hidden="true">
-                    <img src="../global_src/assets/img/logo01.png" class="brand-icon">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar d-flex flex-column p-3 flex-shrink-0" id="sidebar">
+            <div class="sidebar-brand d-flex align-items-center gap-2 mb-1">
+                <div aria-hidden="true" class="brand-icon-wrapper d-flex align-items-center justify-content-center rounded-3">
+                    <img src="../global_src/assets/img/logo01.png" class="brand-icon" alt="Logo ALICIA">
                 </div>
                 <div class="d-flex flex-column">
-                    <span class="brand-title">ALICIA</span>
+                    <span class="brand-title fw-bold text-white" style="letter-spacing: 0.5px;">ALICIA</span>
                 </div>
             </div>
 
+            <hr class="divider-custom my-1" style="border-color: #2e295e; opacity: 1;">
 
-
-            <div class="sidebar-user-card d-flex align-items-center gap-2">
-                <div class="avatar-circle">
-                    <img src="src/assets/img/user.png">
+            <div class="sidebar-user-card d-flex align-items-center gap-2 p-2 mb-3 rounded-3" style="background-color: #272251;">
+                <div class="avatar-circle rounded-circle overflow-hidden flex-shrink-0 d-flex align-items-center justify-content-center">
+                    <img src="../global_src/assets/img/user.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Avatar">
                 </div>
                 <div class="d-flex flex-column min-w-0">
-                    <span class="user-name text-truncate">Estudiante</span>
-                    <span class="user-role-sub">Estudiante</span>
+                    <span class="user-name text-truncate fw-semibold text-white">Estudiante</span>
+                    <span class="user-role-sub text-truncate" style="font-size: 0.75rem; color: #a39fc2;">usuario</span>
                 </div>
             </div>
 
+            <hr class="divider-custom mb-3 mt-1" style="border-color: #2e295e; opacity: 1;">
 
-            <nav class="nav flex-column gap-1" aria-label="Navegación principal">
-                <a class="nav-item active" href="user.html">
-                    <span class="d-flex aling-items-center gap-2">
-                    Catálogo   
-                    </span>
+            <nav class="nav flex-column gap-1 mb-auto" aria-label="Navegación principal">
+                <a class="nav-item active d-flex align-items-center justify-content-between py-2 px-3 text-decoration-none" href="user.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 6 4 14"/>
+                            <path d="M12 6v14"/>
+                            <path d="M8 8v12"/>
+                            <path d="M4 4v16"/>
+                        </svg>
+                        <span>Catálogo</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
 
-                <a class="nav-item" href="userPerfil.html">
-                    <span class="d-flex aling-items-center gap-2">
-                     Mi Perfil
-                    </span>
+                <a class="nav-item d-flex align-items-center py-2 px-3 text-decoration-none" href="userPerfil.html">
+                    <div class="d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Mi Perfil</span>
+                    </div>
                 </a>
             </nav>
 
+            <hr class="divider-custom my-3" style="border-color: #2e295e; opacity: 1;">
 
-      <div class="sidebar-footer mt-auto">            
-            <button class="logout-btn" id="logoutBtn" type="button">Cerrar Sesión</button>
-       </div>
+            <div class="sidebar-footer mt-auto">
+                <div class="d-flex align-items-center mb-3 px-2" style="font-size: 0.85rem; color: #b8b5d3;">
+                    <span class="rounded-circle me-2" style="width: 8px; height: 8px; background-color: #f59e0b; display: inline-block;"></span>
+                    Rol: <strong class="ms-1 text-white">Usuario</strong>
+                </div>
+                <button class="logout-btn d-flex align-items-center gap-2 w-100 py-2 px-3 border-0 bg-transparent text-start" id="logoutBtn" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
         </aside>
 
+        <!-- MAIN CONTENT -->
+        <div class="flex-grow-1 d-flex flex-column min-w-0">
+            <header class="topbar d-flex align-items-center justify-content-between gap-3">
+                <div class="d-flex align-items-center gap-2 flex-grow-1">
+                    <button class="btn btn-outline-secondary btn-sm d-md-none" id="mobileMenuBtn" type="button" aria-label="Abrir menú">
+                        ☰
+                    </button>
+                    <div class="global-search position-relative">
+                        <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" class="form-control" id="globalSearchInput" placeholder="Buscar temas, guías, hilos..." aria-label="Buscar temas, guías o hilos" />
+                    </div>
+                </div>
 
+                <div class="d-flex align-items-center gap-3 position-relative">
+                    <button class="notification-btn" id="notifBtn" type="button" aria-label="Notificaciones">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </button>
 
+                    <div class="topbar-divider"></div>
 
-        <!--- Main Content --->
-        <div>
-            <header></header>
-            <main></main>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="avatar-circle">
+                            <img src="../global_src/assets/img/user.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Usuario">
+                        </div>
+                        <div class="d-none d-sm-flex flex-column">
+                            <span class="topbar-user-name">Estudiante</span>
+                            <span class="topbar-user-role">Usuario</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-area container-fluid">
+                <div class="mb-3">
+                    <h1 class="page-title">Catálogo de Documentación</h1>
+                    <p class="page-subtitle mb-0">Selecciona un tema para leerlo y explorar su contenido</p>
+                </div>
+
+                <div class="row g-4" id="filaCatalogoDinamica">
+                    
+                    <!-- CATÁLOGO -->
+                    <div class="col-12 transition-all" id="columnaCatalogo">
+                        <div class="card border-0 shadow-sm rounded-4 mb-4 p-3">
+                            <div class="input-group border rounded-pill bg-white overflow-hidden mb-3">
+                                <span class="input-group-text bg-transparent border-0 ps-3">
+                                    <i class="bi bi-search text-muted"></i>
+                                </span>
+                                <input type="text" id="inputBusquedaTema" class="form-control border-0 bg-transparent shadow-none py-2 ps-2" placeholder="Buscar tema...">
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 align-items-center pt-1">
+                                <div class="d-flex flex-wrap gap-2 align-items-center" id="grupoFiltrosTecnologia">
+                                    <button class="btn btn-sm rounded-pill px-4 text-white btn-tec" data-tecnologia="todos" style="background-color: #6366f1;">Todos</button>
+                                    <button class="btn btn-sm btn-light rounded-pill px-3 text-secondary border btn-tec" data-tecnologia="Java">Java</button>
+                                    <button class="btn btn-sm btn-light rounded-pill px-3 text-secondary border btn-tec" data-tecnologia="HTML/CSS">HTML/CSS</button>
+                                    <button class="btn btn-sm btn-light rounded-pill px-3 text-secondary border btn-tec me-2" data-tecnologia="SQL">SQL</button>
+                                </div>
+                                
+                                <span class="text-muted opacity-50 d-none d-md-inline">|</span>
+
+                                <div class="d-flex flex-wrap gap-2 align-items-center ms-md-2" id="grupoFiltrosNivel">
+                                    <button class="btn btn-sm rounded-pill px-4 text-white btn-niv" data-nivel="todos" style="background-color: #6366f1;">Todos</button>
+                                    <button class="btn btn-sm btn-light rounded-pill px-3 text-secondary border btn-niv" data-nivel="Principiante">Principiante</button>
+                                    <button class="btn btn-sm btn-light rounded-pill px-3 text-secondary border btn-niv" data-nivel="Intermedio">Intermedio</button>
+                                    <button class="btn btn-sm btn-light rounded-pill px-3 text-secondary border btn-niv" data-nivel="Avanzado">Avanzado</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3" id="contenedorCatalogoTemas"></div>
+                    </div>
+
+                    <!-- PANEL DERECHO -->
+                    <div class="col-lg-5 d-none" id="panelDerecho">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-3" id="cardDetalleContenido"></div>
+
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-0 shadow-none" placeholder="Escribe tu duda... (Enter para enviar)">
+                                <button class="btn text-white rounded-pill px-3" style="background-color: #6366f1;">
+                                    ✈️
+                                </button>
+                            </div>
+                            <div class="text-center mt-2">
+                                <small class="text-muted" style="font-size: 0.7rem;">Método socrático · No entrega código (RN-5.1)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
-    <script src="./src/js/user.js"></script>
-    <script src="../userPage/src/js/authGuard.js"></script>
+
+    <div class="toast-msg" id="toast"></div>
+
+    <script src="src/js/user.js"></script>
+    <script src="src/js/authGuard.js"></script>
+    <script src="src/js/catalogo.js"></script>
 </body>
 </html>
-
