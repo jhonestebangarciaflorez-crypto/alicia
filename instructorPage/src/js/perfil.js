@@ -157,3 +157,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 });
+
+
+// Cargar foto si ya la tenía guardada
+    const fotoGuardada = usuarioActual.foto;
+    if (fotoGuardada) {
+        fotoTemporal = fotoGuardada;
+        const avatarImg = avatarContainer?.querySelector('img');
+        if (avatarImg) avatarImg.src = fotoTemporal;
+        if (sidebarAvatarImg) sidebarAvatarImg.src = fotoTemporal;
+    }
+
+    //Manejo dinámico para subir y cambiar la foto de perfil
+    if (camBtn && avatarContainer) {
+        const inputFile = document.createElement('input');
+        inputFile.type = 'file';
+        inputFile.accept = 'image/*';
+        inputFile.style.display = 'none';
+        document.body.appendChild(inputFile);
+
+        camBtn.addEventListener('click', () => inputFile.click());
+
+        inputFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    fotoTemporal = event.target.result;
+                    const avatarImg = avatarContainer.querySelector('img');
+                    if (avatarImg) {
+                        avatarImg.src = fotoTemporal;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+

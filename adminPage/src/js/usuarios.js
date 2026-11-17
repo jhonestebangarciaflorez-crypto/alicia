@@ -1,8 +1,6 @@
-
-
 /* 
 @ Descripcion: Lógica para la gestión de usuarios: apertura/cierre del modal, 
-creación de nuevos usuarios y renderizado dinámico de la tabla desde el localStorage.
+creación de nuevos usuarios, renderizado dinámico de la tabla y soporte para foto personalizada o de rol.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     rol: rol,
                     ficha: ficha,
                     estado: 'activo',
+                    foto: '', // Campo preparado para cuando el usuario suba su foto personalizada
                     fechaRegistro: new Date().toISOString()
                 };
 
@@ -62,248 +61,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('¡Usuario creado exitosamente!');
                 cerrarModal();
                 
-                // Recargar para actualizar la tabla
                 location.reload();
             });
         }
     }
 
     // ==========================================
-    // 2. RENDERIZADO DINÁMICO DE LA TABLA DESDE LOCALSTORAGE
+    // 2. FUNCIÓN AUXILIAR PARA OBTENER LA IMAGEN (PERSONALIZADA O DEFAULT POR ROL)
     // ==========================================
-    const tablaBody = document.getElementById('tablaUsuariosBody');
-
-    if (tablaBody) {
-        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-        if (usuarios.length === 0) {
-            tablaBody.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-muted">No hay usuarios registrados.</td></tr>`;
-            return;
+    function obtenerAvatarUsuario(user) {
+        // Si el usuario subió una foto propia, la usamos
+        if (user.foto && user.foto.trim() !== "") {
+            return user.foto;
         }
 
-        let htmlFilas = '';
+        // Si no tiene foto propia, usamos el default personalizado según su rol
+        const rolLower = (user.rol || "").toLowerCase().trim();
 
-        usuarios.forEach((user, index) => {
-            // Inicial para el avatar
-            const inicial = user.nombre ? user.nombre.charAt(0).toUpperCase() : 'U';
-
-            // Formatear fecha
-            let fechaStr = 'Reciente';
-            if (user.fechaRegistro) {
-                const fechaObj = new Date(user.fechaRegistro);
-                fechaStr = fechaObj.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
-            }
-
-            // Normalizar y formatear nombres de roles y colores de badges
-            let rolFormateado = 'Usuario';
-            let badgeBg = 'bg-secondary';
-            let badgeText = 'text-secondary';
-            let avatarBg = 'bg-secondary';
-
-            switch (user.rol) {
-                case 'admin':
-                    rolFormateado = 'Administrador';
-                    badgeBg = 'bg-danger';
-                    badgeText = 'text-danger';
-                    avatarBg = 'bg-danger';
-                    break;
-                case 'instructor':
-                case 'profesor':
-                    rolFormateado = 'Profesor';
-                    badgeBg = 'bg-success';
-                    badgeText = 'text-success';
-                    avatarBg = 'bg-success';
-                    break;
-                case 'aprendiz':
-                case 'estudiante':
-                    rolFormateado = 'Estudiante';
-                    badgeBg = 'bg-primary';
-                    badgeText = 'text-primary';
-                    avatarBg = 'bg-primary';
-                    break;
-                default:
-                    rolFormateado = 'Usuario';
-                    badgeBg = 'bg-secondary';
-                    badgeText = 'text-secondary';
-                    avatarBg = 'bg-secondary';
-                    break;
-            }
-
-            const fichaUser = user.ficha || 'PROG-2026-A';
-            const estadoUser = user.estado || 'activo';
-
-            htmlFilas += `
-                <tr>
-                    <td class="ps-4">
-                        <div class="d-flex align-items-center">
-                            <div class="rounded-circle text-white d-flex align-items-center justify-content-center me-3 fw-bold ${avatarBg}" style="width: 40px; height: 40px;">
-                                ${inicial}
-                            </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold">${user.nombre}</h6>
-                                <small class="text-muted">${user.correo}</small>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <span class="badge ${badgeBg} bg-opacity-10 ${badgeText} px-3 py-2 rounded-pill">${rolFormateado}</span>
-                    </td>
-                    <td class="fw-medium text-secondary">${fichaUser}</td>
-                    <td>
-                        <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">${estadoUser}</span>
-                    </td>
-                    <td class="text-secondary small">${fechaStr}</td>
-                    <td class="text-end pe-4">
-                        <!-- Botón de Editar -->
-                        <button class="btn btn-sm btn-light rounded-2 px-2 py-1 me-1 d-inline-flex align-items-center btn-editar" data-index="${index}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7d8da1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                        </button>
-                        <!-- Botón de Eliminar / Desactivar -->
-                        <button class="btn btn-sm btn-light rounded-2 px-2 py-1 d-inline-flex align-items-center btn-eliminar" data-index="${index}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff5c6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="18" y1="8" x2="23" y2="13"></line><line x1="23" y1="8" x2="18" y2="13"></line></svg>
-                        </button>
-                    </td>
-                </tr>
-            `;
-        });
-
-        tablaBody.innerHTML = htmlFilas;
-    }
-});
-
-
-
-/* 
-@ Descripcion: Lógica para eliminar un usuario del localStorage desde la tabla.
-*/
-document.addEventListener('click', (e) => {
-    const btnEliminar = e.target.closest('.btn-eliminar');
-    if (btnEliminar) {
-        const index = btnEliminar.getAttribute('data-index');
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-        const usuarioAEliminar = usuarios[index];
-
-        if (confirm(`¿Estás seguro de que deseas eliminar al usuario "${usuarioAEliminar.nombre}"?`)) {
-            // Eliminamos 1 elemento en la posición 'index'
-            usuarios.splice(index, 1);
-            
-            // Actualizamos el localStorage
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
-            
-            alert('Usuario eliminado correctamente.');
-            location.reload(); // Recargamos para actualizar la tabla
+        switch (rolLower) {
+            case 'admin':
+            case 'administrador':
+                return '../global_src/assets/img/admin.png';
+            case 'instructor':
+            case 'profesor':
+                return '../global_src/assets/img/instructor.png';
+            case 'aprendiz':
+            case 'estudiante':
+                return '../global_src/assets/img/aprendiz.png';
+            default:
+                return '../global_src/assets/img/user.png';
         }
     }
-});
 
-
-
-
-/* 
-@ Descripcion: Lógica actualizada para incluir el campo 'estado' al editar un usuario.
-*/
-document.addEventListener('DOMContentLoaded', () => {
-    const modalEditar = document.getElementById('modalEditarUsuario');
-    const cerrarModalEditarBtn = document.getElementById('cerrarModalEditarBtn');
-    const cancelarModalEditarBtn = document.getElementById('cancelarModalEditarBtn');
-    const formEditarUsuario = document.getElementById('formEditarUsuario');
-
-    const cerrarModalEditar = () => {
-        if (modalEditar) modalEditar.style.display = 'none';
-    };
-
-    if (cerrarModalEditarBtn) cerrarModalEditarBtn.addEventListener('click', cerrarModalEditar);
-    if (cancelarModalEditarBtn) cancelarModalEditarBtn.addEventListener('click', cerrarModalEditar);
-
-    // 1. Escuchar clics en los botones de editar de la tabla
-    document.addEventListener('click', (e) => {
-        const btnEditar = e.target.closest('.btn-editar');
-        if (btnEditar && modalEditar) {
-            const index = btnEditar.getAttribute('data-index');
-            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-            const user = usuarios[index];
-
-            if (user) {
-                // Rellenar el formulario con los datos actuales del usuario (incluyendo el estado)
-                document.getElementById('editIndex').value = index;
-                document.getElementById('editNombre').value = user.nombre || '';
-                document.getElementById('editEmail').value = user.correo || '';
-                document.getElementById('editRol').value = user.rol || 'usuario';
-                document.getElementById('editFicha').value = user.ficha || 'PROG-2026-A';
-                document.getElementById('editEstado').value = user.estado || 'activo';
-
-                // Mostrar el modal
-                modalEditar.style.display = 'flex';
-            }
-        }
-    });
-
-    // 2. Guardar los cambios editados
-    if (formEditarUsuario) {
-        formEditarUsuario.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const index = document.getElementById('editIndex').value;
-            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-            if (usuarios[index]) {
-                // Actualizar los datos, incluyendo el estado seleccionado en el modal
-                usuarios[index].nombre = document.getElementById('editNombre').value.trim();
-                usuarios[index].correo = document.getElementById('editEmail').value.trim();
-                usuarios[index].rol = document.getElementById('editRol').value;
-                usuarios[index].ficha = document.getElementById('editFicha').value.trim();
-                usuarios[index].estado = document.getElementById('editEstado').value; // <--- NUEVO: Guarda el nuevo estado
-
-                // Guardar de vuelta en el localStorage
-                localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-                alert('¡Usuario actualizado exitosamente!');
-                cerrarModalEditar();
-                location.reload(); // Recargar para ver los cambios reflejados en la tabla
-            }
-        });
-    }
-});
-
-
-
-
-
-
-/* 
-@ Descripcion: Lógica unificada para renderizar la tabla con filtros de rol y búsqueda en tiempo real.
-*/
-
-document.addEventListener('DOMContentLoaded', () => {
-    // [Aquí se mantiene tu código anterior del modal de crear y editar...]
-
-    // ----------------------------------------------------
-    // RENDERIZADO Y FILTRADO DE LA TABLA
-    // ----------------------------------------------------
+    // ==========================================
+    // 3. RENDERIZADO DINÁMICO DE LA TABLA DESDE LOCALSTORAGE
+    // ==========================================
     const tablaBody = document.getElementById('tablaUsuariosBody');
     const inputBusqueda = document.getElementById('inputBusqueda');
     const grupoFiltros = document.getElementById('grupoFiltros');
 
-    let rolActual = 'todos'; // Rol seleccionado por defecto
-    let textoBusqueda = '';  // Texto escrito por defecto
+    let rolActual = 'todos'; 
+    let textoBusqueda = '';  
 
-    // Función principal que pinta la tabla según los filtros actuales
     function cargarTablaUsuarios() {
         if (!tablaBody) return;
 
         const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-        // 1. Filtrar la lista de usuarios
         const usuariosFiltrados = usuarios.filter(user => {
             const nombre = user.nombre ? user.nombre.toLowerCase() : '';
             const correo = user.correo ? user.correo.toLowerCase() : '';
             const rolUser = user.rol ? user.rol.toLowerCase() : 'usuario';
 
-            // Validar coincidencia de texto (nombre o correo)
             const coincideTexto = nombre.includes(textoBusqueda) || correo.includes(textoBusqueda);
 
-            // Validar coincidencia de rol
             let coincideRol = false;
             if (rolActual === 'todos') {
                 coincideRol = true;
@@ -318,20 +129,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return coincideTexto && coincideRol;
         });
 
-        // 2. Si no hay resultados
         if (usuariosFiltrados.length === 0) {
             tablaBody.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-muted">No se encontraron usuarios coincidentes.</td></tr>`;
             return;
         }
 
-        // 3. Generar HTML de las filas filtradas
         let htmlFilas = '';
 
         usuariosFiltrados.forEach((user) => {
-            // Buscamos el índice real del usuario en el array original (para que editar/eliminar no falle)
             const indexOriginal = usuarios.findIndex(u => u.correo === user.correo);
 
-            const inicial = user.nombre ? user.nombre.charAt(0).toUpperCase() : 'U';
+            // Obtenemos la imagen correcta (su foto o el default por rol)
+            const rutaImagen = obtenerAvatarUsuario(user);
 
             let fechaStr = 'Reciente';
             if (user.fechaRegistro) {
@@ -342,34 +151,30 @@ document.addEventListener('DOMContentLoaded', () => {
             let rolFormateado = 'Usuario';
             let badgeBg = 'bg-secondary';
             let badgeText = 'text-secondary';
-            let avatarBg = 'bg-secondary';
 
             switch (user.rol) {
                 case 'admin':
+                case 'administrador':
                     rolFormateado = 'Administrador';
                     badgeBg = 'bg-danger';
                     badgeText = 'text-danger';
-                    avatarBg = 'bg-danger';
                     break;
                 case 'instructor':
                 case 'profesor':
                     rolFormateado = 'Profesor';
                     badgeBg = 'bg-success';
                     badgeText = 'text-success';
-                    avatarBg = 'bg-success';
                     break;
                 case 'aprendiz':
                 case 'estudiante':
                     rolFormateado = 'Estudiante';
                     badgeBg = 'bg-primary';
                     badgeText = 'text-primary';
-                    avatarBg = 'bg-primary';
                     break;
                 default:
                     rolFormateado = 'Usuario';
                     badgeBg = 'bg-secondary';
                     badgeText = 'text-secondary';
-                    avatarBg = 'bg-secondary';
                     break;
             }
 
@@ -380,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <tr>
                     <td class="ps-4">
                         <div class="d-flex align-items-center">
-                            <div class="rounded-circle text-white d-flex align-items-center justify-content-center me-3 fw-bold ${avatarBg}" style="width: 40px; height: 40px;">
-                                ${inicial}
+                            <div class="rounded-circle overflow-hidden me-3 flex-shrink-0 d-flex align-items-center justify-content-center border" style="width: 40px; height: 40px; background-color: #f8f9fa;">
+                                <img src="${rutaImagen}" alt="Avatar de ${user.nombre}" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div>
                                 <h6 class="mb-0 fw-bold">${user.nombre}</h6>
@@ -412,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tablaBody.innerHTML = htmlFilas;
     }
 
-    // Evento para la barra de búsqueda en tiempo real
     if (inputBusqueda) {
         inputBusqueda.addEventListener('input', (e) => {
             textoBusqueda = e.target.value.toLowerCase().trim();
@@ -420,12 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Eventos para los botones de filtro por rol
     if (grupoFiltros) {
         grupoFiltros.addEventListener('click', (e) => {
             const btnFiltro = e.target.closest('.btn-filtro');
             if (btnFiltro) {
-                // Cambiar estilos visuales de los botones
                 const botones = grupoFiltros.querySelectorAll('.btn-filtro');
                 botones.forEach(b => {
                     b.classList.remove('text-white');
@@ -437,14 +239,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnFiltro.classList.add('text-white');
                 btnFiltro.style.backgroundColor = '#e91e63';
 
-                // Obtener el rol seleccionado y recargar tabla
                 rolActual = btnFiltro.getAttribute('data-rol');
                 cargarTablaUsuarios();
             }
         });
     }
 
-    // Cargar la tabla por defecto al iniciar la página
     cargarTablaUsuarios();
 });
 
+// ==========================================
+// 4. LÓGICA PARA ELIMINAR USUARIO
+// ==========================================
+document.addEventListener('click', (e) => {
+    const btnEliminar = e.target.closest('.btn-eliminar');
+    if (btnEliminar) {
+        const index = btnEliminar.getAttribute('data-index');
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        const usuarioAEliminar = usuarios[index];
+
+        if (confirm(`¿Estás seguro de que deseas eliminar al usuario "${usuarioAEliminar.nombre}"?`)) {
+            usuarios.splice(index, 1);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            
+            alert('Usuario eliminado correctamente.');
+            location.reload();
+        }
+    }
+});
+
+// ==========================================
+// 5. LÓGICA DE EDICIÓN DE USUARIO
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const modalEditar = document.getElementById('modalEditarUsuario');
+    const cerrarModalEditarBtn = document.getElementById('cerrarModalEditarBtn');
+    const cancelarModalEditarBtn = document.getElementById('cancelarModalEditarBtn');
+    const formEditarUsuario = document.getElementById('formEditarUsuario');
+
+    const cerrarModalEditar = () => {
+        if (modalEditar) modalEditar.style.display = 'none';
+    };
+
+    if (cerrarModalEditarBtn) cerrarModalEditarBtn.addEventListener('click', cerrarModalEditar);
+    if (cancelarModalEditarBtn) cancelarModalEditarBtn.addEventListener('click', cerrarModalEditar);
+
+    document.addEventListener('click', (e) => {
+        const btnEditar = e.target.closest('.btn-editar');
+        if (btnEditar && modalEditar) {
+            const index = btnEditar.getAttribute('data-index');
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const user = usuarios[index];
+
+            if (user) {
+                document.getElementById('editIndex').value = index;
+                document.getElementById('editNombre').value = user.nombre || '';
+                document.getElementById('editEmail').value = user.correo || '';
+                document.getElementById('editRol').value = user.rol || 'usuario';
+                document.getElementById('editFicha').value = user.ficha || 'PROG-2026-A';
+                document.getElementById('editEstado').value = user.estado || 'activo';
+
+                modalEditar.style.display = 'flex';
+            }
+        }
+    });
+
+    if (formEditarUsuario) {
+        formEditarUsuario.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const index = document.getElementById('editIndex').value;
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            if (usuarios[index]) {
+                usuarios[index].nombre = document.getElementById('editNombre').value.trim();
+                usuarios[index].correo = document.getElementById('editEmail').value.trim();
+                usuarios[index].rol = document.getElementById('editRol').value;
+                usuarios[index].ficha = document.getElementById('editFicha').value.trim();
+                usuarios[index].estado = document.getElementById('editEstado').value;
+
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+                alert('¡Usuario actualizado exitosamente!');
+                cerrarModalEditar();
+                location.reload();
+            }
+        });
+    }
+});

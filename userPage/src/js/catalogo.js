@@ -1,14 +1,40 @@
 /* 
 @ Descripción: Lógica del catálogo para el usuario común: lectura de localStorage, 
-filtrado simultáneo por búsqueda de texto, tecnología y nivel, y apertura del panel de lectura.
+filtrado simultáneo por búsqueda de texto, tecnología y nivel, sincronización de usuario activo y apertura del panel de lectura.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. SINCRONIZAR DATOS DEL USUARIO ACTIVO EN LA INTERFAZ (Sidebar y Topbar)
+    const usuarioActual = JSON.parse(localStorage.getItem('usuarioActivo')) || 
+                          JSON.parse(localStorage.getItem('user')) || 
+                          JSON.parse(localStorage.getItem('perfilUsuario')) || 
+                          { nombre: 'Estudiante', rol: 'usuario', foto: '../global_src/assets/img/user.png' };
+
+    const nombreUsuario = usuarioActual.nombre || usuarioActual.usuario || 'Estudiante';
+    const rolUsuario = usuarioActual.rol || 'usuario';
+    const fotoUsuario = usuarioActual.foto || '../global_src/assets/img/user.png';
+
+    // Actualizar nombres en el sidebar y topbar
+    document.querySelectorAll('.user-name, .topbar-user-name').forEach(el => {
+        el.textContent = nombreUsuario;
+    });
+
+    // Actualizar roles
+    document.querySelectorAll('.user-role-sub, .topbar-user-role').forEach(el => {
+        el.textContent = rolUsuario;
+    });
+
+    // Actualizar avatares de imagen
+    document.querySelectorAll('.avatar-circle img, .sidebar-user-card img').forEach(img => {
+        img.src = fotoUsuario;
+    });
+
+
     // Referencias de Contenedores y Búsqueda
     const contenedorCatalogo = document.getElementById('contenedorCatalogoTemas');
     const contadorTemas = document.getElementById('contadorTemasPublicados');
     const inputBusqueda = document.getElementById('inputBusquedaTema');
-    const globalSearchInput = document.getElementById('globalSearchInput'); // <-- Referencia a la barra del header
+    const globalSearchInput = document.getElementById('globalSearchInput'); 
     const grupoFiltrosTecnologia = document.getElementById('grupoFiltrosTecnologia');
     const grupoFiltrosNivel = document.getElementById('grupoFiltrosNivel');
 
@@ -34,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('temas', JSON.stringify(temas));
         }
 
-        // Actualizar contador de temas publicados
+        // Actualizar contador de temas publicados si existe el elemento
         if (contadorTemas) {
             contadorTemas.innerHTML = `${temas.length} temas disponibles &bull; Explora el contenido del catálogo`;
         }
@@ -140,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (inputBusqueda) {
         inputBusqueda.addEventListener('input', (e) => {
             textoBusqueda = e.target.value.toLowerCase().trim();
-            // Sincronizar con la barra del header
             if (globalSearchInput) {
                 globalSearchInput.value = e.target.value;
             }
@@ -152,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (globalSearchInput) {
         globalSearchInput.addEventListener('input', (e) => {
             textoBusqueda = e.target.value.toLowerCase().trim();
-            // Sincronizar con la barra del main
             if (inputBusqueda) {
                 inputBusqueda.value = e.target.value;
             }
@@ -204,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarCatalogo();
 });
 
-// Mostrar detalle y activar vista dividida al hacer clic en "Abrir" (Solo lectura, sin botones de edición)
+// Mostrar detalle y activar vista dividida al hacer clic en "Abrir"
 document.addEventListener('click', (e) => {
     const btnAbrir = e.target.closest('.btn-abrir-tema');
     if (btnAbrir) {
@@ -217,12 +241,10 @@ document.addEventListener('click', (e) => {
         const cardDetalle = document.getElementById('cardDetalleContenido');
 
         if (tema && columnaCatalogo && panelDerecho) {
-            // TRANSICIÓN A VISTA DIVIDIDA
             columnaCatalogo.classList.remove('col-12');
             columnaCatalogo.classList.add('col-lg-7');
-            panelDerecho.classList.remove('d-none'); // Muestra el panel derecho
+            panelDerecho.classList.remove('d-none');
 
-            // Rellenar la información del tema seleccionado (solo lectura)
             cardDetalle.innerHTML = `
                 <div class="d-flex justify-content-between align-items-start mb-3">
                     <div class="d-flex align-items-center gap-2">
@@ -240,7 +262,6 @@ document.addEventListener('click', (e) => {
                 </div>
                 <p class="text-secondary mb-3">${tema.descripcion}</p>
 
-                <!-- Bloque de contenido/código de lectura -->
                 <div class="p-3 rounded-3 text-white mb-3" style="background-color: #1e1b4b; font-family: monospace; font-size: 0.85rem;">
                     <span class="text-muted">// Contenido de documentación para ${tema.titulo}</span><br>
                     <span>public class Ejemplo {</span><br>
@@ -267,7 +288,6 @@ document.addEventListener('click', (e) => {
             columnaCatalogo.classList.add('col-12');
             panelDerecho.classList.add('d-none');
 
-            // Recargar catálogo para volver a 4 columnas
             const eventoCargar = new Event('DOMContentLoaded');
             document.dispatchEvent(eventoCargar);
         }

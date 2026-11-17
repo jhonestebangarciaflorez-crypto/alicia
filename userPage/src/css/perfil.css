@@ -1,3 +1,25 @@
+:root {
+    --accent-blue: #2c61d3;
+    --accent-indigo: #5255e8;
+    --accent-indigo-soft: #eef2ff;
+
+    --bg-main: #f6f8fc;
+    --border-color: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 /* Content & Profile Layout */
 .content-area {
     padding: 26px 28px 40px;
@@ -205,19 +227,6 @@
 }
 
 @media (max-width: 767.98px) {
-    .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-        height: 100vh;
-        z-index: 1050;
-    }
-
-    .sidebar.open {
-        transform: translateX(0);
-    }
-
     .topbar,
     .content-area {
         padding-left: 16px;

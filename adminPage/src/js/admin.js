@@ -1,22 +1,52 @@
-/*
+/* 
 @ Descripcion: Lógica del panel de administración. Carga dinámica de datos 
-desde el localStorage para el usuario activo, contador de usuarios y registros recientes.
+desde el localStorage para el usuario activo, contadores, registros recientes e imágenes por rol o perfil.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // FUNCIÓN AUXILIAR PARA OBTENER LA IMAGEN
+    // ==========================================
+    function obtenerAvatarUsuario(user) {
+        if (user.foto && user.foto.trim() !== "") {
+            return user.foto;
+        }
+
+        const rolLower = (user.rol || "").toLowerCase().trim();
+
+        switch (rolLower) {
+            case 'admin':
+            case 'administrador':
+                return '../global_src/assets/img/admin.png';
+            case 'instructor':
+            case 'profesor':
+                return '../global_src/assets/img/instructor.png';
+            case 'aprendiz':
+            case 'estudiante':
+                return '../global_src/assets/img/aprendiz.png';
+            default:
+                return '../global_src/assets/img/user.png';
+        }
+    }
 
     const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
 
     if (usuarioActivo) {
         const spanNombre = document.querySelector('.sidebar-user-card .user-name');
         const spanRol = document.querySelector('.sidebar-user-card .user-role-sub');
+        const imgAvatarSidebar = document.querySelector('.sidebar-user-card .avatar-circle img');
 
         if (spanNombre) spanNombre.textContent = usuarioActivo.nombre;
         if (spanRol) spanRol.textContent = usuarioActivo.rol.charAt(0).toUpperCase() + usuarioActivo.rol.slice(1);
+        
+        // Si el usuario activo también tiene su avatar personalizado o por rol en el sidebar
+        if (imgAvatarSidebar) {
+            imgAvatarSidebar.src = obtenerAvatarUsuario(usuarioActivo);
+        }
     }
 
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
 
     const cardUsuariosTotales = document.querySelector('.col-sm-6.col-xl-3:nth-child(1) h3');
     if (cardUsuariosTotales) {
@@ -32,15 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let htmlRegistros = '';
 
         ultimosUsuarios.forEach(user => {
-            const inicial = user.nombre ? user.nombre.charAt(0).toUpperCase() : 'U';
-            
+            // Obtenemos la imagen correcta para los registros recientes
+            const rutaImagen = obtenerAvatarUsuario(user);
 
             let fechaStr = 'Reciente';
             if (user.fechaRegistro) {
                 const fechaObj = new Date(user.fechaRegistro);
                 fechaStr = fechaObj.toLocaleDateString() + ' ' + fechaObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             }
-
 
             let estiloBadgeBg = '#eef2ff';
             let estiloBadgeText = 'text-primary';
@@ -49,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (user.rol === 'instructor' || user.rol === 'profesor') {
                 estiloBadgeBg = '#eefcf4';
                 estiloBadgeText = 'text-success';
-            } else if (user.rol === 'admin') {
+            } else if (user.rol === 'admin' || user.rol === 'administrador') {
                 estiloBadgeBg = '#fdf2f8';
                 estiloBadgeText = 'text-danger';
             }
@@ -57,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
             htmlRegistros += `
                 <div class="d-flex align-items-center justify-content-between pb-3 border-bottom">
                     <div class="d-flex align-items-center gap-3">
-                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px; font-size: 0.9rem;">
-                            ${inicial}
+                        <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center border flex-shrink-0" style="width: 38px; height: 38px; background-color: #f8f9fa;">
+                            <img src="${rutaImagen}" alt="Avatar de ${user.nombre}" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div>
                             <span class="d-block fw-semibold text-dark" style="font-size: 0.9rem;">${user.nombre}</span>
@@ -72,9 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         contenedorRegistros.innerHTML = htmlRegistros;
     }
-
-
-
 
     const btnLogout = document.getElementById('logoutBtn');
     if (btnLogout) {
@@ -94,13 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardFichasActivasAdmin = document.getElementById('contadorFichasAdmin');
     
     if (cardFichasActivasAdmin) {
-        // Obtenemos las fichas guardadas en el localStorage
         const fichas = JSON.parse(localStorage.getItem('fichas')) || [];
-        
-        // Filtramos y contamos cuántas están en estado 'activa'
         const fichasActivasCount = fichas.filter(f => f.estado === 'activa').length;
-        
-        // Mostramos el número real en la tarjeta del dashboard
         cardFichasActivasAdmin.textContent = fichasActivasCount;
     }
 });

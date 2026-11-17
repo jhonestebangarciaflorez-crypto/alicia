@@ -1,5 +1,5 @@
 /* GUARDIA DE SESIÓN Y CIERRE DE SESIÓN */
-/*
+
 function verificarSesion() {
     const sesionActiva = localStorage.getItem('usuarioActivo');
     // Si no hay sesión, expulsa al index general impidiendo bucles con history.replace
@@ -25,4 +25,4 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.replace('../index.html');
         });
     }
-});*/
+});

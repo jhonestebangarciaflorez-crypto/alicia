@@ -80,12 +80,15 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="content-area container-fluid flex-grow-1">
+<!-- MAIN CONTENT -->
+        <main class="flex-grow-1 p-4 bg-light overflow-y-auto" style="height: 100vh;">
             <div class="mb-4">
                 <h1 class="page-title">Mi Perfil</h1>
                 <p class="page-subtitle mb-0">Configuración y estadísticas</p>
             </div>
+
+            <!-- Toast de Notificaciones -->
+            <div class="toast-msg" id="toast"></div>
 
             <div class="row g-4 align-items-start">
                 
@@ -104,7 +107,7 @@
                             </button>
                         </div>
                         <h2 class="profile-name mb-1" id="cardProfileName">Estudiante</h2>
-                        <p class="profile-email mb-2">usuario@correo.com</p>
+                        <p class="profile-email mb-2" id="cardProfileEmail">usuario@correo.com</p>
                         <span class="role-pill">Usuario</span>
 
                         <hr class="my-3 border-light-subtle" />
@@ -178,26 +181,25 @@
                                 <form id="personalForm">
                                     <div class="row g-3 mb-3">
                                         <div class="col-12 col-md-6">
-                                            <label for="fullName" class="form-label field-label">NOMBRE COMPLETO</label>
-                                            <input type="text" class="form-control custom-input" id="fullName" value="Estudiante" />
+                                            <label for="fullName" class="form-label field-label">NOMBRE DE USUARIO</label>
+                                            <input type="text" class="form-control custom-input" id="fullName" required />
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <label for="phone" class="form-label field-label">TELÉFONO</label>
-                                            <input type="text" class="form-control custom-input" id="phone" value="314 567 8901" />
+                                            <input type="text" class="form-control custom-input" id="phone" placeholder="314 567 8901" />
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="email" class="form-label field-label">CORREO ELECTRÓNICO</label>
-                                        <input type="email" class="form-control custom-input" id="email" value="usuario@correo.com" disabled />
-                                        <div class="form-text text-muted-custom mt-1">El correo institucional no se puede modificar.</div>
+                                        <input type="email" class="form-control custom-input" id="email" required />
                                     </div>
 
                                     <div class="mb-4">
                                         <label class="form-label field-label">ROL</label>
                                         <div class="role-readonly-box d-flex align-items-center gap-2 flex-wrap">
                                             <span class="role-pill">Usuario</span>
-                                            <span class="role-helper">El rol es asignado por el administrador.</span>
+                                            <span class="role-helper">El rol es asignado por el sistema.</span>
                                         </div>
                                     </div>
 
@@ -221,7 +223,7 @@
                                             <input type="password" class="form-control custom-input" id="newPass" placeholder="Mínimo 8 caracteres" required />
                                         </div>
                                         <div class="col-12 col-md-6">
-                                            <label for="confirmPass" class="form-label field-label">CONFIRMAR CONTRASEÑA</label>
+                                            <label for="confirmPass" class="form-label field-label">CONFIRMAR NUEVA CONTRASEÑA</label>
                                             <input type="password" class="form-control custom-input" id="confirmPass" placeholder="Repite la contraseña" required />
                                         </div>
                                     </div>
@@ -270,9 +272,7 @@
         </main>
     </div>
 
-    <!-- Toast de Notificaciones -->
-    <div class="toast-msg" id="toast"></div>
-
+    <!-- Scripts necesarios -->
     <script src="../global_src/js/bootstrap.bundle.js"></script>
     <script src="src/js/authGuard.js"></script>
     <script src="src/js/perfil.js"></script>

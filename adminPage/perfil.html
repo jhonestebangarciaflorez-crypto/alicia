@@ -26,7 +26,7 @@
             <!-- 2. Tarjeta de Usuario -->
             <div class="sidebar-user-card d-flex align-items-center gap-2 p-2 mb-3 rounded-3" style="background-color: #272251;">
                 <div class="avatar-circle rounded-circle overflow-hidden flex-shrink-0 d-flex align-items-center justify-content-center">
-                    <img src="src/assets/img/user.png" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="../global_src/assets/img/admin.png" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="d-flex flex-column min-w-0">
                     <span class="user-name text-truncate fw-semibold text-white" id="sidebarUserName">Estudiante</span>
@@ -142,10 +142,16 @@
                 <div class="col-lg-4">
                     <!-- Tarjeta de Perfil -->
                     <div class="card border-0 shadow-sm rounded-4 p-4 text-center mb-4">
-                        <div class="position-relative d-inline-block mx-auto mb-3">
-                            <div class="rounded-4 text-white d-flex align-items-center justify-content-center fw-bold fs-2 shadow-sm mx-auto" style="width: 90px; height: 90px; background: linear-gradient(135deg, #e91e63, #c2185b);" id="profileAvatarInitial">
-                                ?
+                        <div class="profile-avatar-wrap mx-auto mb-3">
+                            <div class="profile-avatar-lg overflow-hidden rounded-4">
+                                <img src="../global_src/assets/img/admin.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Foto de perfil">
                             </div>
+                            <button class="avatar-cam-btn" id="camBtn" type="button" aria-label="Cambiar foto de perfil">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                                    <circle cx="12" cy="13" r="4" />
+                                </svg>
+                            </button>
                         </div>
                         <h5 class="fw-bold mb-1" id="profileNameCard">Nombre de usuario</h5>
                         <p class="text-muted small mb-3" id="profileEmailCard">correo@ejemplo.com</p>

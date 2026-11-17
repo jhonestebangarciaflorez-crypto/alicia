@@ -3,7 +3,7 @@
  * mostrando una alerta y redirigiendo a la vista de inicio de sesión.
  * @param {string} [rutaLogin='../mainPage/inicioSesion.html'] - Ruta opcional hacia la página de login.
  */
-function cerrarSesion(rutaLogin = '../mainPage/inicioSesion.html') {
+function cerrarSesion(rutaLogin = '../index.html') {
     // Elimina el registro del usuario activo
     localStorage.removeItem('usuarioActivo');
     
