@@ -46,6 +46,8 @@ async function validacionCampos(event) {
         nombre: nombre,
         correo: email,
         contrasena: password,
+        rol: "aprendiz",
+        ficha: "PROG-2026-A",
         fechaRegistro: new Date().toISOString()
     };
 
@@ -53,9 +55,9 @@ async function validacionCampos(event) {
     usuarios.push(nuevoUsuario);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    alert("¡Registro exitoso!");
+    alert("¡Registro exitoso! Ya puedes iniciar sesión.");
 
-    window.location.href = "inicioSesion.html"; 
+    window.location.href = "inicioSesion.html";
 
     return false;
 }
@@ -75,87 +77,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleButtons.forEach(button => {
         button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-target');
-        const input = document.getElementById(targetId);
+            const targetId = button.getAttribute('data-target');
+            const input = document.getElementById(targetId);
 
-        if (input.type === 'password') {
-            input.type = 'text';
-            button.innerHTML = '<i data-lucide="eye-off"></i>';
-            button.setAttribute('aria-label', 'Ocultar contraseña');
-        } else {
-            input.type = 'password';
-            button.innerHTML = '<i data-lucide="eye"></i>';
-            button.setAttribute('aria-label', 'Mostrar contraseña');
-        }
-
-        lucide.createIcons();
+            if (input) {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    button.innerHTML = '<i data-lucide="eye-off"></i>';
+                    button.setAttribute('aria-label', 'Ocultar contraseña');
+                } else {
+                    input.type = 'password';
+                    button.innerHTML = '<i data-lucide="eye"></i>';
+                    button.setAttribute('aria-label', 'Mostrar contraseña');
+                }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
         });
     });
 });
 
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const formRegistro = document.getElementById('registroForm');
-    const inputUsuario = document.getElementById('usuario');
-    const inputPassword = document.getElementById('password');
-    const mensajeAlerta = document.getElementById('mensajeAlerta');
-
-
-    formRegistro.addEventListener('submit', function (e) {
-        e.preventDefault();
-        
-
-        const usuario = inputUsuario.value.trim();
-        const password = inputPassword.value.trim();
-
-        if (!usuario || !password) {
-            mostrarMensaje('Por favor, completa todos los campos.', 'error');
-            return;
-        }
-
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-        const usuarioExiste = usuarios.some(user => user.usuario === usuario);
-        if (usuarioExiste) {
-            mostrarMensaje('Este nombre de usuario ya está registrado. Prueba con otro.', 'error');
-            return;
-        }
-
-
-        const nuevoUsuario = {
-            nombre: nombre,
-            correo: email,
-            contrasena: password,
-            rol: 'usuario',
-            fechaRegistro: new Date().toISOString()
-        };
-
-        usuarios.push(nuevoUsuario);
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-
-        mostrarMensaje('¡Registro exitoso! Redirigiendo...', 'exito');
-
-        setTimeout(() => {
-            window.location.href = '../inicioSesion.html'; 
-        }, 1500);
-    });
-
-    function mostrarMensaje(texto, tipo) {
-        if (!mensajeAlerta) return;
-        mensajeAlerta.textContent = texto;
-        mensajeAlerta.className = `alerta ${tipo}`; 
-    }
-});
 
 
 
